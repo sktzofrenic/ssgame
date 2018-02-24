@@ -2,6 +2,7 @@
 
 # C extensions
 *.so
+*.remote-synce.json
 
 # Packages
 *.egg

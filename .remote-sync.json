@@ -1,0 +1,12 @@
+{
+  "transport": "sftp",
+  "hostname": "myground.org",
+  "port": 22,
+  "uploadOnSave": true,
+  "username": "root",
+  "password": "aQCLmlBx!t26",
+  "target": "/_ssgame/ssgame",
+  "ignore": [
+    ".git/**"
+  ]
+}

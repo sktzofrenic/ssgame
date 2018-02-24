@@ -15,7 +15,9 @@
   },
   "author": "Dan Safee",
   "license": "BSD-3-Clause",
-  "engines": { "node" : ">=4" },
+  "engines": {
+    "node": ">=4"
+  },
   "bugs": {
     "url": "https://github.com/sktzofrenic/ssgame/issues"
   },
@@ -23,7 +25,10 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "socket.io": "^2.0.4",
+    "vue": "^2.5.13",
+    "vue-loader": "^14.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
