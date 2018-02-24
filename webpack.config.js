@@ -1,6 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 /*
  * Webpack Plugins
  */
@@ -34,6 +38,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css'],
+    alias: {
+      '@': resolve('assets/js'),
+      'vue$': 'vue/dist/vue.esm.js'
+    }
   },
   devtool: 'source-map',
   devServer: {
@@ -47,7 +55,8 @@ module.exports = {
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
       { test: /\.(ttf|eot|svg|png|jpe?g|gif|ico)(\?.*)?$/i,
         loader: `file-loader?context=${rootAssetPath}&name=[path][name].[hash].[ext]` },
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', query: { presets: ['env'], cacheDirectory: true } },
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', query: { presets: ['env', "es2015", "stage-0"], cacheDirectory: true } },
+      { test: /\.vue$/, loader: 'vue-loader' }
     ],
   },
   plugins: [

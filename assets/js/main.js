@@ -1,5 +1,5 @@
 /*
- * Main Javascript file for ssgame.
+ * Main Javascript file for battleship.
  *
  * This file bundles all of your javascript together using webpack.
  */
@@ -9,6 +9,13 @@ require('jquery');
 require('font-awesome-webpack');
 require('bootstrap');
 
-// Your own code
-require('./plugins.js');
-require('./script.js');
+import Vue from 'vue'
+import App from './App.vue'
+
+new Vue({
+    el: '#app',
+    template: '<App/>',
+    store: store,
+    render: h => h(App),
+    components: { App }
+})
