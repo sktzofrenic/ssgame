@@ -3,7 +3,7 @@
 from flask import Flask, render_template
 
 from ssgame import commands, public, user
-from ssgame.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate, webpack
+from ssgame.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate, webpack, socketio
 from ssgame.settings import ProdConfig
 
 
@@ -32,6 +32,7 @@ def register_extensions(app):
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
     webpack.init_app(app)
+    socketio.init_app(app)
     return None
 
 
