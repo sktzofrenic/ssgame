@@ -48,7 +48,3 @@ env/
 
 # npm
 /node_modules/
-
-# webpack-built files
-/ssgame/static/build/
-/ssgame/webpack/manifest.json
