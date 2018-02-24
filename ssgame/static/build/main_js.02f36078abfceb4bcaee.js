@@ -21377,13 +21377,12 @@ __webpack_require__(7);
 __webpack_require__(3);
 
 new _vue2.default({
-    el: '#app',
-    template: '<App/>',
-    store: store,
-    render: function render(h) {
-        return h(_App2.default);
-    },
-    components: { App: _App2.default }
+  el: '#app',
+  template: '<App/>',
+  render: function render(h) {
+    return h(_App2.default);
+  },
+  components: { App: _App2.default }
 });
 
 /***/ }),
@@ -25151,4 +25150,4 @@ function listToStyles (parentId, list) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main_js.d47335fc784dab8ef8ad.js.map
+//# sourceMappingURL=main_js.02f36078abfceb4bcaee.js.map

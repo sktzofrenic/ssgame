@@ -15,7 +15,6 @@ import App from './App.vue'
 new Vue({
     el: '#app',
     template: '<App/>',
-    store: store,
     render: h => h(App),
     components: { App }
 })
