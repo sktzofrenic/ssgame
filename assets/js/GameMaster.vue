@@ -1,39 +1,57 @@
 <template lang="html">
     <div>
-        <h1 style="text-align:center;font-size: 110px;" v-if="name">Hotseat: {{ name }}</h1>
-        <h1 v-else style="text-align:center;font-size: 110px; color:#c3c3c3">waiting...</h1>
-        <button class="ui red button" @click="incorrectAnswer()">Wrong!</button>
-        <button class="ui green button" @click="correctAnswer()">Right!</button>
-        <button class="ui grey button" type="button" name="button" @click="clearAnswer()">Clear</button>
-        <div class="ui divider">
+        <div class="hotseat" v-show="!zonkOn">
+            <h1 style="text-align:center;font-size: 110px; margin-top: -30px;" v-if="name">Hotseat: <span style="color: rgb(237, 241, 95);">{{ name }}</span> </h1>
+            <h1 v-else style="text-align:center;font-size: 110px; color: rgb(237, 241, 95); margin-top: -30px;">waiting...</h1>
+            <!-- <button class="ui red button" @click="incorrectAnswer()">Wrong!</button>
+            <button class="ui green button" @click="correctAnswer()">Right!</button>
+            <button class="ui purple button" @click="playGame()">Play!</button>
+            <button class="ui grey button" type="button" name="button" @click="clearAnswer()">Clear</button> -->
 
+            <div class="ui statistics">
+                <div class="red statistic" v-for="player in players">
+                    <div class="value" style="font-size: 100px !important; color: #f9ff03 !important;">
+                        {{ player.points }}
+                    </div>
+                    <div class="label" style="font-size: 50px; margin-top: 10px;">
+                        {{ truncate(player.name) }}
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="ui statistics">
-          <div class="red statistic" v-for="player in players">
-            <div class="value" style="font-size: 150px !important;">
-              {{ player.points }}
-            </div>
-            <div class="label" style="font-size: 50px; margin-top: 10px;">
-              {{ truncate(player.name) }}
-            </div>
-          </div>
-      </div>
-
+        <div class="zonk-game" v-show="zonkOn">
+            <Zonk :teamName="name" @playDone="stopPlay"/>
+        </div>
     </div>
 </template>
 
 <script>
 import {socket} from './socket.js'
 import _ from 'lodash'
+import Zonk from './Zonk.vue'
+import Mousetrap from 'mousetrap'
+
 export default {
     data () {
         return {
             name: '',
             socket: undefined,
-            players: []
+            players: [],
+            zonkOn: false
         }
     },
+    components: {
+        Zonk
+    },
     methods: {
+        playGame () {
+            this.zonkOn = !this.zonkOn
+        },
+        stopPlay (points) {
+            console.log(points)
+            this.zonkOn = !this.zonkOn
+            this.correctAnswer(points)
+        },
         truncate (name) {
             if (name.length > 8) {
                 return name.substring(0, 7) + '...'
@@ -44,18 +62,18 @@ export default {
         clearAnswer: function () {
             this.name = ''
         },
-        correctAnswer: function () {
+        correctAnswer: function (points) {
             var vm = this
             if (_.find(vm.players, {name: vm.name})) {
                 vm.players.map(function (each) {
                     if (each.name === vm.name) {
-                        each.points += 10
+                        each.points += points
                     }
                 })
             } else {
                 vm.players.push({
                     name: vm.name,
-                    points: 10
+                    points: points
                 })
             }
             vm.name = ''
@@ -79,6 +97,12 @@ export default {
     },
     mounted: function () {
         var vm = this
+        Mousetrap.bind('p', function () {
+            vm.playGame()
+        })
+        Mousetrap.bind('c', function () {
+            vm.clearAnswer()
+        })
         socket.on('connect', function() {
             socket.emit('my-event', {
                 data: 'I\'m connected!'
@@ -108,4 +132,5 @@ export default {
     font-size: 80px !important;
     margin-top: 150px;
 }
+
 </style>
