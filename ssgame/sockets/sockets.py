@@ -8,7 +8,12 @@ import datetime as dt
 import json as js
 
 
-@socketio.on('message')
+@socketio.on('answer')
 def handle_message(json):
-    print('received message: ' + message)
-    emit('message', json, broadcast=True)
+    print('received message: ' + str(json))
+    emit('answer', json, broadcast=True)
+
+
+@socketio.on('my-event')
+def default(json):
+    print('received message: ' + str(json))

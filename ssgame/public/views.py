@@ -56,6 +56,11 @@ def register():
     return render_template('public/register.html', form=form)
 
 
+@blueprint.route('/gm/')
+def gm():
+    return render_template('public/gm.html')
+
+
 @blueprint.route('/about/')
 def about():
     """About page."""
