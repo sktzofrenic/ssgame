@@ -103,6 +103,9 @@ export default {
         Mousetrap.bind('c', function () {
             vm.clearAnswer()
         })
+        Mousetrap.bind('n', function () {
+            vm.incorrectAnswer()
+        })
         socket.on('connect', function() {
             socket.emit('my-event', {
                 data: 'I\'m connected!'
