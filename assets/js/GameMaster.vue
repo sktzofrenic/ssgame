@@ -14,7 +14,7 @@
               {{ player.points }}
             </div>
             <div class="label" style="font-size: 50px; margin-top: 10px;">
-              {{ player.name }}
+              {{ truncate(player.name) }}
             </div>
           </div>
       </div>
@@ -34,6 +34,13 @@ export default {
         }
     },
     methods: {
+        truncate (name) {
+            if (name.length > 8) {
+                return name.substring(0, 7) + '...'
+            } else {
+                return name
+            }
+        },
         clearAnswer: function () {
             this.name = ''
         },

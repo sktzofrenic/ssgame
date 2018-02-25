@@ -13039,6 +13039,13 @@ function applyToTag (styleElement, obj) {
         };
     },
     methods: {
+        truncate(name) {
+            if (name.length > 8) {
+                return name.substring(0, 7) + '...';
+            } else {
+                return name;
+            }
+        },
         clearAnswer: function () {
             this.name = '';
         },
@@ -14932,10 +14939,10 @@ __webpack_require__(78);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(15);
 /* empty harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_657027ba_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_657027ba_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(13);
 function injectStyle (context) {
-  __webpack_require__(96)
+  __webpack_require__(95)
 }
 /* script */
 
@@ -15012,10 +15019,10 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_GameMaster_vue__ = __webpack_require__(17);
 /* empty harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_59f0b88a_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_ca2cbee8_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(13);
 function injectStyle (context) {
-  __webpack_require__(95)
+  __webpack_require__(96)
 }
 /* script */
 
@@ -15027,14 +15034,14 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-59f0b88a"
+var __vue_scopeId__ = "data-v-ca2cbee8"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
 var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_GameMaster_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_59f0b88a_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_59f0b88a_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_ca2cbee8_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_ca2cbee8_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["b" /* staticRenderFns */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -28694,7 +28701,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, ".game-button[data-v-59f0b88a]{width:100%;height:400px;font-size:90px!important}.game-input[data-v-59f0b88a]{width:100%;height:190px;font-size:80px!important;margin-top:150px}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -28708,7 +28715,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".game-button[data-v-ca2cbee8]{width:100%;height:400px;font-size:90px!important}.game-input[data-v-ca2cbee8]{width:100%;height:190px;font-size:80px!important;margin-top:150px}", ""]);
 
 // exports
 
@@ -49323,7 +49330,7 @@ var staticRenderFns = []
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.name)?_c('h1',{staticStyle:{"text-align":"center","font-size":"110px"}},[_vm._v("Hotseat: "+_vm._s(_vm.name))]):_c('h1',{staticStyle:{"text-align":"center","font-size":"110px","color":"#c3c3c3"}},[_vm._v("waiting...")]),_vm._v(" "),_c('button',{staticClass:"ui red button",on:{"click":function($event){_vm.incorrectAnswer()}}},[_vm._v("Wrong!")]),_vm._v(" "),_c('button',{staticClass:"ui green button",on:{"click":function($event){_vm.correctAnswer()}}},[_vm._v("Right!")]),_vm._v(" "),_c('button',{staticClass:"ui grey button",attrs:{"type":"button","name":"button"},on:{"click":function($event){_vm.clearAnswer()}}},[_vm._v("Clear")]),_vm._v(" "),_c('div',{staticClass:"ui divider"}),_vm._v(" "),_c('div',{staticClass:"ui statistics"},_vm._l((_vm.players),function(player){return _c('div',{staticClass:"red statistic"},[_c('div',{staticClass:"value",staticStyle:{"font-size":"150px !important"}},[_vm._v("\n          "+_vm._s(player.points)+"\n        ")]),_vm._v(" "),_c('div',{staticClass:"label",staticStyle:{"font-size":"50px","margin-top":"10px"}},[_vm._v("\n          "+_vm._s(player.name)+"\n        ")])])}))])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{},[_c('p',[_vm._v(_vm._s(_vm.msg))])])}
 var staticRenderFns = []
 
 
@@ -49334,7 +49341,7 @@ var staticRenderFns = []
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{},[_c('p',[_vm._v(_vm._s(_vm.msg))])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.name)?_c('h1',{staticStyle:{"text-align":"center","font-size":"110px"}},[_vm._v("Hotseat: "+_vm._s(_vm.name))]):_c('h1',{staticStyle:{"text-align":"center","font-size":"110px","color":"#c3c3c3"}},[_vm._v("waiting...")]),_vm._v(" "),_c('button',{staticClass:"ui red button",on:{"click":function($event){_vm.incorrectAnswer()}}},[_vm._v("Wrong!")]),_vm._v(" "),_c('button',{staticClass:"ui green button",on:{"click":function($event){_vm.correctAnswer()}}},[_vm._v("Right!")]),_vm._v(" "),_c('button',{staticClass:"ui grey button",attrs:{"type":"button","name":"button"},on:{"click":function($event){_vm.clearAnswer()}}},[_vm._v("Clear")]),_vm._v(" "),_c('div',{staticClass:"ui divider"}),_vm._v(" "),_c('div',{staticClass:"ui statistics"},_vm._l((_vm.players),function(player){return _c('div',{staticClass:"red statistic"},[_c('div',{staticClass:"value",staticStyle:{"font-size":"150px !important"}},[_vm._v("\n          "+_vm._s(player.points)+"\n        ")]),_vm._v(" "),_c('div',{staticClass:"label",staticStyle:{"font-size":"50px","margin-top":"10px"}},[_vm._v("\n          "+_vm._s(_vm.truncate(player.name))+"\n        ")])])}))])}
 var staticRenderFns = []
 
 
@@ -49364,7 +49371,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(14).default
-var update = add("140ec454", content, true, {});
+var update = add("0040c798", content, true, {});
 
 /***/ }),
 /* 96 */
@@ -49378,7 +49385,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(14).default
-var update = add("0040c798", content, true, {});
+var update = add("efad5c04", content, true, {});
 
 /***/ }),
 /* 97 */
@@ -49423,4 +49430,4 @@ function listToStyles (parentId, list) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main_js.a75a08694be7582d9653.js.map
+//# sourceMappingURL=main_js.bdbf8cfda5849768193b.js.map
