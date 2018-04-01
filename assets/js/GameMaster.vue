@@ -55,7 +55,7 @@ export default {
         },
         truncate (name) {
             if (name.length > 8) {
-                return name.substring(0, 7) + '...'
+                return name.substring(0, 12) + '...'
             } else {
                 return name
             }
