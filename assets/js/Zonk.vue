@@ -67,7 +67,7 @@ export default {
             risky: true,
             pickNumber: 1,
             activeTeamPoints: 0,
-            cardPossibilities: [0, 0, 0, 0, 100, 200, 300, 400, 500]
+            cardPossibilities: [0, 0, 100, 200, 300, 400, 500]
         }
     },
     props: ['teamName'],
