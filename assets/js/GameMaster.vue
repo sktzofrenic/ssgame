@@ -37,7 +37,8 @@ export default {
             name: '',
             socket: undefined,
             players: [],
-            zonkOn: false
+            zonkOn: false,
+            possiblePlayers: []
         }
     },
     components: {
@@ -83,13 +84,17 @@ export default {
             if (_.find(vm.players, {name: vm.name})) {
                 vm.players.map(function (each) {
                     if (each.name === vm.name) {
-                        each.points -= 5
+                        if (each.points > 0) {
+                            each.points = parseInt(each.points / 2)
+                        } else {
+                            each.points -= 1000
+                        }
                     }
                 })
             } else {
                 vm.players.push({
                     name: vm.name,
-                    points: -5
+                    points: -1000
                 })
             }
             vm.name = ''
@@ -114,9 +119,20 @@ export default {
         socket.on('answer', function (data) {
             console.log(data.data)
             if (!vm.name) {
-                var alert = new Audio('/static/alert.wav')
-                alert.play()
-                vm.name = data.data
+                vm.possiblePlayers.push(data)
+                var timeout = setTimeout(function () {
+                    // pick a winner from the group
+                    // and put him in the hot seat
+                    console.log(vm.possiblePlayers, 'before')
+                    vm.possiblePlayers = _.orderBy(vm.possiblePlayers, [function(o) { return o.timestamp; }])
+                    console.log(vm.possiblePlayers, 'sorted')
+                    if (!vm.name) {
+                        var alert = new Audio('/static/alert.wav')
+                        alert.play()
+                        vm.name = vm.possiblePlayers[0].data
+                        vm.possiblePlayers = []
+                    }
+                }, 2000)
             }
         })
     }
@@ -124,6 +140,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+.hotseat {
+    background: rgba(0, 0, 0, 0.4);
+}
 .game-button {
     width: 100%;
     height: 400px;

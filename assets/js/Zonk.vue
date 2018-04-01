@@ -81,7 +81,7 @@ export default {
                 if (notRisky) {
                     multiplier = 1
                     this.risky = false
-                    cardPossibilities = [0, 0, 0, 0, 100, 200, 300, 400, 500]
+                    cardPossibilities = [0, 0, 100, 200, 300, 400, 500]
                     console.log('not risky')
                 }
                 this.cards.push({

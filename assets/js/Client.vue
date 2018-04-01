@@ -18,19 +18,26 @@
 
 <script>
 import {socket} from './socket.js'
+import moment from 'moment'
+
 export default {
     data () {
         return {
             name: '',
-            socket: undefined
+            socket: undefined,
+            delay: 0
         }
     },
     methods: {
         sendAnswer () {
             var vm = this
-            socket.emit('answer', {
-                data: vm.name
-            })
+            var time = moment().valueOf()
+            setTimeout(function () {
+                socket.emit('answer', {
+                    data: vm.name,
+                    timestamp: time
+                })
+            }, vm.delay)
         }
     },
     mounted () {
@@ -46,10 +53,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+
 .game-button {
     width: 100%;
     height: 400px;
     font-size: 90px  !important;
+        background: rgba(243, 243, 243, 0.8) !important;
 }
 .game-input {
     width: 100%;
