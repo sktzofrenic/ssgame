@@ -67,7 +67,7 @@ export default {
             risky: true,
             pickNumber: 1,
             activeTeamPoints: 0,
-            cardPossibilities: [0, 0, 100, 200, 300, 400, 500]
+            cardPossibilities: [0, 100, 100, 200, 300, 400, 500, 500]
         }
     },
     props: ['teamName'],
@@ -77,11 +77,11 @@ export default {
             this.cards = []
             for (var i = 0; i < _.range(24).length; i++) {
                 var multiplier = 4
-                var cardPossibilities = [0, 0, 100, 200, 300, 400, 500, 500]
+                var cardPossibilities = [0, 100, 100, 200, 300, 400, 500, 500]
                 if (notRisky) {
                     multiplier = 1
                     this.risky = false
-                    cardPossibilities = [0, 0, 100, 200, 300, 400, 500]
+                    cardPossibilities = [0, 100, 100, 200, 300, 400, 500, 500]
                     console.log('not risky')
                 }
                 this.cards.push({

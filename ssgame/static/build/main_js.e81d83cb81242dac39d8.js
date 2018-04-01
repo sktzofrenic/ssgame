@@ -17776,7 +17776,7 @@ module.exports = function(module) {
             risky: true,
             pickNumber: 1,
             activeTeamPoints: 0,
-            cardPossibilities: [0, 0, 100, 200, 300, 400, 500]
+            cardPossibilities: [0, 100, 100, 200, 300, 400, 500, 500]
         };
     },
     props: ['teamName'],
@@ -17786,11 +17786,11 @@ module.exports = function(module) {
             this.cards = [];
             for (var i = 0; i < __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.range(24).length; i++) {
                 var multiplier = 4;
-                var cardPossibilities = [0, 0, 100, 200, 300, 400, 500, 500];
+                var cardPossibilities = [0, 100, 100, 200, 300, 400, 500, 500];
                 if (notRisky) {
                     multiplier = 1;
                     this.risky = false;
-                    cardPossibilities = [0, 0, 100, 200, 300, 400, 500];
+                    cardPossibilities = [0, 100, 100, 200, 300, 400, 500, 500];
                     console.log('not risky');
                 }
                 this.cards.push({
@@ -49746,10 +49746,10 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Client_vue__ = __webpack_require__(18);
 /* empty harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_34cc72fd_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Client_vue__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_34cc72fd_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Client_vue__ = __webpack_require__(222);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(10);
 function injectStyle (context) {
-  __webpack_require__(225)
+  __webpack_require__(226)
 }
 /* script */
 
@@ -63468,7 +63468,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, ".game-button[data-v-34cc72fd]{width:100%;height:400px;font-size:90px!important;background:hsla(0,0%,95%,.8)!important}.game-input[data-v-34cc72fd]{width:100%;height:190px;font-size:80px!important;margin-top:150px}", ""]);
+exports.push([module.i, ".toolbar[data-v-22e4d8d4]{position:absolute;top:2px;left:2px}.card-number[data-v-22e4d8d4]{font-size:80px}.value-number[data-v-22e4d8d4]{font-size:80px;color:#66d045;text-shadow:0 0 11px #225114;-webkit-text-stroke-width:2px;-webkit-text-stroke-color:#fff}.flip-container[data-v-22e4d8d4]{width:26vh;height:21vh;margin-bottom:20px;position:relative;-webkit-perspective:800px;-ms-perspective:800px;perspective:800px;border-radius:4px}.card[data-v-22e4d8d4]{-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275),-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 6px 16px rgba(0,0,0,.15);cursor:pointer}.card[data-v-22e4d8d4],.card div[data-v-22e4d8d4]{width:100%;height:100%;position:absolute;border-radius:6px}.card div[data-v-22e4d8d4]{-webkit-backface-visibility:hidden;backface-visibility:hidden;background:#fff;display:-webkit-box;display:-ms-flexbox;display:box;display:flex;-webkit-box-pack:center;-o-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-o-box-align:center;-ms-flex-align:center;align-items:center;font:16px/1.5 Helvetica Neue,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;color:#47525d}.card .back[data-v-22e4d8d4],.card.flipped[data-v-22e4d8d4]{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}", ""]);
 
 // exports
 
@@ -63482,7 +63482,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, ".toolbar[data-v-57f38cf2]{position:absolute;top:2px;left:2px}.card-number[data-v-57f38cf2]{font-size:80px}.value-number[data-v-57f38cf2]{font-size:80px;color:#66d045;text-shadow:0 0 11px #225114;-webkit-text-stroke-width:2px;-webkit-text-stroke-color:#fff}.flip-container[data-v-57f38cf2]{width:26vh;height:21vh;margin-bottom:20px;position:relative;-webkit-perspective:800px;-ms-perspective:800px;perspective:800px;border-radius:4px}.card[data-v-57f38cf2]{-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275),-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 6px 16px rgba(0,0,0,.15);cursor:pointer}.card[data-v-57f38cf2],.card div[data-v-57f38cf2]{width:100%;height:100%;position:absolute;border-radius:6px}.card div[data-v-57f38cf2]{-webkit-backface-visibility:hidden;backface-visibility:hidden;background:#fff;display:-webkit-box;display:-ms-flexbox;display:box;display:flex;-webkit-box-pack:center;-o-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-o-box-align:center;-ms-flex-align:center;align-items:center;font:16px/1.5 Helvetica Neue,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;color:#47525d}.card .back[data-v-57f38cf2],.card.flipped[data-v-57f38cf2]{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}", ""]);
+exports.push([module.i, ".game-button[data-v-34cc72fd]{width:100%;height:400px;font-size:90px!important;background:hsla(0,0%,95%,.8)!important}.game-input[data-v-34cc72fd]{width:100%;height:190px;font-size:80px!important;margin-top:150px}", ""]);
 
 // exports
 
@@ -67263,10 +67263,10 @@ module.exports = __webpack_require__.p + "fee66e712a8a08eef5805a46892932ad.woff"
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Zonk_vue__ = __webpack_require__(20);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_57f38cf2_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Zonk_vue__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_22e4d8d4_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Zonk_vue__ = __webpack_require__(221);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(10);
 function injectStyle (context) {
-  __webpack_require__(226)
+  __webpack_require__(225)
 }
 /* script */
 
@@ -67278,14 +67278,14 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-57f38cf2"
+var __vue_scopeId__ = "data-v-22e4d8d4"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
 var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Zonk_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_57f38cf2_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Zonk_vue__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_57f38cf2_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Zonk_vue__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_22e4d8d4_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Zonk_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_22e4d8d4_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Zonk_vue__["b" /* staticRenderFns */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -67313,7 +67313,7 @@ var staticRenderFns = []
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"ui container"},[_c('div',{staticClass:"ui one column centered grid"},[_c('div',{staticClass:"column"},[_c('div',{staticClass:"ui big icon input game-input"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.name),expression:"name"}],attrs:{"type":"text","placeholder":"Your name"},domProps:{"value":(_vm.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.name=$event.target.value}}}),_vm._v(" "),_c('i',{staticClass:"user icon"})]),_vm._v(" "),_c('br'),_vm._v(" "),_c('br'),_vm._v(" "),_c('button',{staticClass:"massive ui button game-button",on:{"click":function($event){_vm.sendAnswer()}}},[_vm._v("\n              Buzz\n            ")])])])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('div',{staticClass:"toolbar"},[(_vm.activeTeamPoints)?_c('div',{staticClass:"ui olive huge label"},[_c('span',[_vm._v(" "+_vm._s(_vm.teamName)+" Accumulated: "+_vm._s(_vm.activeTeamPoints))]),_vm._v("\n               Next card worth  = X "+_vm._s(_vm.pickNumber)+"\n        ")]):_vm._e(),_vm._v(" "),(_vm.risky)?_c('div',{staticClass:"ui brown huge label"},[_c('span',[_vm._v("High Risk Mode")])]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"toolbar-right"}),_vm._v(" "),_c('div',{staticClass:"ui grid"},[_c('div',{staticClass:"six column row"},_vm._l((_vm.cards),function(card,index){return _c('div',{staticClass:"column"},[_c('div',{staticClass:"flip-container"},[_c('div',{staticClass:"card",class:{'flipped': card.flipped},on:{"click":function($event){_vm.flip(index)}}},[_c('div',{staticClass:"front"},[_c('h1',{staticClass:"card-number"},[_vm._v(_vm._s(index + 1))])]),_vm._v(" "),_c('div',{staticClass:"back"},[(card.value > 0)?_c('h1',{staticClass:"value-number"},[(card.flipped)?_c('span',[_vm._v("\n                                    "+_vm._s(card.value)+"\n                                ")]):_c('span',[_vm._v("\n                                    "+_vm._s(card.value * _vm.pickNumber)+"\n                                ")])]):_c('h1',[_c('img',{attrs:{"src":"/static/img/zonk.png","alt":""}})])])])])])}))])])}
 var staticRenderFns = []
 
 
@@ -67324,7 +67324,7 @@ var staticRenderFns = []
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('div',{staticClass:"toolbar"},[(_vm.activeTeamPoints)?_c('div',{staticClass:"ui olive huge label"},[_c('span',[_vm._v(" "+_vm._s(_vm.teamName)+" Accumulated: "+_vm._s(_vm.activeTeamPoints))]),_vm._v("\n               Next card worth  = X "+_vm._s(_vm.pickNumber)+"\n        ")]):_vm._e(),_vm._v(" "),(_vm.risky)?_c('div',{staticClass:"ui brown huge label"},[_c('span',[_vm._v("High Risk Mode")])]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"toolbar-right"}),_vm._v(" "),_c('div',{staticClass:"ui grid"},[_c('div',{staticClass:"six column row"},_vm._l((_vm.cards),function(card,index){return _c('div',{staticClass:"column"},[_c('div',{staticClass:"flip-container"},[_c('div',{staticClass:"card",class:{'flipped': card.flipped},on:{"click":function($event){_vm.flip(index)}}},[_c('div',{staticClass:"front"},[_c('h1',{staticClass:"card-number"},[_vm._v(_vm._s(index + 1))])]),_vm._v(" "),_c('div',{staticClass:"back"},[(card.value > 0)?_c('h1',{staticClass:"value-number"},[(card.flipped)?_c('span',[_vm._v("\n                                    "+_vm._s(card.value)+"\n                                ")]):_c('span',[_vm._v("\n                                    "+_vm._s(card.value * _vm.pickNumber)+"\n                                ")])]):_c('h1',[_c('img',{attrs:{"src":"/static/img/zonk.png","alt":""}})])])])])])}))])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"ui container"},[_c('div',{staticClass:"ui one column centered grid"},[_c('div',{staticClass:"column"},[_c('div',{staticClass:"ui big icon input game-input"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.name),expression:"name"}],attrs:{"type":"text","placeholder":"Your name"},domProps:{"value":(_vm.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.name=$event.target.value}}}),_vm._v(" "),_c('i',{staticClass:"user icon"})]),_vm._v(" "),_c('br'),_vm._v(" "),_c('br'),_vm._v(" "),_c('button',{staticClass:"massive ui button game-button",on:{"click":function($event){_vm.sendAnswer()}}},[_vm._v("\n              Buzz\n            ")])])])])}
 var staticRenderFns = []
 
 
@@ -67365,7 +67365,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(11).default
-var update = add("d2b639ae", content, true, {});
+var update = add("534c9a70", content, true, {});
 
 /***/ }),
 /* 226 */
@@ -67379,7 +67379,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(11).default
-var update = add("3a069006", content, true, {});
+var update = add("d2b639ae", content, true, {});
 
 /***/ }),
 /* 227 */
@@ -67438,4 +67438,4 @@ function listToStyles (parentId, list) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main_js.2fb1e5bf969513473d4c.js.map
+//# sourceMappingURL=main_js.e81d83cb81242dac39d8.js.map
