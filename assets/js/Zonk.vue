@@ -73,6 +73,7 @@ export default {
     props: ['teamName'],
     methods: {
         generateCards: function (notRisky) {
+            var vm = this
             this.changeTeam(this.currentTeam)
             this.cards = []
             for (var i = 0; i < _.range(24).length; i++) {
@@ -89,6 +90,9 @@ export default {
                     flipped: false,
                     value: cardPossibilities[Math.floor(Math.random() * cardPossibilities.length)] * multiplier
                 })
+            }
+            if (!_.find(vm.cards, function(o) { return o.value === 0 })) {
+                vm.generateCards()
             }
         },
         flip: function (index) {
