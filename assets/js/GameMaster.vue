@@ -1,7 +1,7 @@
 <template lang="html">
     <div>
         <div class="hotseat" v-show="!zonkOn">
-            <h1 style="text-align:center;font-size: 110px; margin-top: -30px;" v-if="name">Hotseat: <span style="color: rgb(237, 241, 95);">{{ name }}</span> </h1>
+            <h1 style="text-align:center;font-size: 110px; margin-top: -30px; color:#fff;" v-if="name">Hotseat: <span style="color: rgb(237, 241, 95);">{{ name }}</span> </h1>
             <h1 v-else style="text-align:center;font-size: 110px; color: rgb(237, 241, 95); margin-top: -30px;">waiting...</h1>
         </div>
         <div class="hotseat2" v-show="!zonkOn">
