@@ -3,17 +3,18 @@
         <div class="hotseat" v-show="!zonkOn">
             <h1 style="text-align:center;font-size: 110px; margin-top: -30px;" v-if="name">Hotseat: <span style="color: rgb(237, 241, 95);">{{ name }}</span> </h1>
             <h1 v-else style="text-align:center;font-size: 110px; color: rgb(237, 241, 95); margin-top: -30px;">waiting...</h1>
+        </div>
+        <div class="hotseat2" v-show="!zonkOn">
             <!-- <button class="ui red button" @click="incorrectAnswer()">Wrong!</button>
             <button class="ui green button" @click="correctAnswer()">Right!</button>
             <button class="ui purple button" @click="playGame()">Play!</button>
             <button class="ui grey button" type="button" name="button" @click="clearAnswer()">Clear</button> -->
-
             <div class="ui statistics">
-                <div class="red statistic" v-for="player in players">
-                    <div class="value" style="font-size: 100px !important; color: #f9ff03 !important;">
+                <div @click="selectTeam(index)" class="red statistic" v-for="(player, index) in players">
+                    <div class="value" :style="pointStyle" style="color: #f9ff03 !important;">
                         {{ player.points }}
                     </div>
-                    <div class="label" style="font-size: 50px; margin-top: 10px;">
+                    <div class="label" :style="nameStyle" style="color: #fff !important; margin-top: 10px;">
                         {{ truncate(player.name) }}
                     </div>
                 </div>
@@ -44,9 +45,26 @@ export default {
     components: {
         Zonk
     },
+    computed: {
+        nameStyle() {
+            let fontSize = this.players.length > 6 ? 50 : (250 / this.players.length)
+            return {
+                'font-size': fontSize + 'px !important'
+            }
+        },
+        pointStyle() {
+            let fontSize = this.players.length > 6 ? 100 : (500 / this.players.length)
+            return {
+                'font-size': fontSize + 'px !important'
+            }
+        }
+    },
     methods: {
         playGame () {
             this.zonkOn = !this.zonkOn
+        },
+        selectTeam (index) {
+            this.name = this.players[index].name
         },
         stopPlay (points) {
             console.log(points)
@@ -61,6 +79,18 @@ export default {
             }
         },
         clearAnswer: function () {
+            var vm = this
+            if (_.find(vm.players, {name: vm.name})) {
+                vm.players.map(function (each) {
+                    // do nothing if the player exists
+                })
+            } else {
+                // add the player if not exists
+                vm.players.push({
+                    name: vm.name,
+                    points: 0
+                })
+            }
             this.name = ''
         },
         correctAnswer: function (points) {
@@ -111,6 +141,24 @@ export default {
         Mousetrap.bind('n', function () {
             vm.incorrectAnswer()
         })
+        Mousetrap.bind('up', function () {
+            if (vm.name) {
+                vm.players.map(function (each) {
+                    if (each.name === vm.name) {
+                        each.points += 100
+                    }
+                })
+            }  
+        })
+        Mousetrap.bind('down', function () {
+            if (vm.name) {
+                vm.players.map(function (each) {
+                    if (each.name === vm.name) {
+                        each.points -= 100
+                    }
+                })
+            } 
+        })
         socket.on('connect', function() {
             socket.emit('my-event', {
                 data: 'I\'m connected!'
@@ -141,8 +189,21 @@ export default {
 
 <style lang="css" scoped>
 
+.statistic {
+    cursor: pointer;
+}
+
 .hotseat {
     background: rgba(0, 0, 0, 0.4);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.hotseat2 {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }
 .game-button {
     width: 100%;

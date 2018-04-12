@@ -16,9 +16,9 @@
                 <span> {{ teamName }} Accumulated: {{ activeTeamPoints }}</span>
                 &nbsp;&nbsp;&nbsp;Next card worth  = X {{ pickNumber }}
             </div>
-            <div v-if="risky" class="ui brown huge label">
+            <!-- <div v-if="risky" class="ui brown huge label">
                 <span>High Risk Mode</span>
-            </div>
+            </div> -->
         </div>
         <div class="toolbar-right">
 
