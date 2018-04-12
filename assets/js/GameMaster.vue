@@ -12,7 +12,7 @@
             <div class="ui statistics">
                 <div @click="selectTeam(index)" class="red statistic" v-for="(player, index) in players">
                     <div class="value" :style="pointStyle" style="color: #f9ff03 !important;">
-                        {{ player.points }}
+                        {{ formatNumber(player.points) }}
                     </div>
                     <div class="label" :style="nameStyle" style="color: #fff !important; margin-top: 10px;">
                         {{ truncate(player.name) }}
@@ -60,6 +60,9 @@ export default {
         }
     },
     methods: {
+        formatNumber (number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        },
         playGame () {
             this.zonkOn = !this.zonkOn
         },
@@ -191,6 +194,7 @@ export default {
 
 .statistic {
     cursor: pointer;
+    margin: auto;
 }
 
 .hotseat {

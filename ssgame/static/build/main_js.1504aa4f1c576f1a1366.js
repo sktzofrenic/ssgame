@@ -17618,6 +17618,9 @@ module.exports = function(module) {
         }
     },
     methods: {
+        formatNumber(number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        },
         playGame() {
             this.zonkOn = !this.zonkOn;
         },
@@ -49834,10 +49837,10 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_GameMaster_vue__ = __webpack_require__(19);
 /* empty harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_f8d29df2_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b35f5a54_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__ = __webpack_require__(222);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(10);
 function injectStyle (context) {
-  __webpack_require__(227)
+  __webpack_require__(226)
 }
 /* script */
 
@@ -49849,14 +49852,14 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-f8d29df2"
+var __vue_scopeId__ = "data-v-b35f5a54"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
 var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_GameMaster_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_f8d29df2_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_f8d29df2_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b35f5a54_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b35f5a54_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["b" /* staticRenderFns */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -63530,7 +63533,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, ".toolbar[data-v-b8809c5a]{position:absolute;top:2px;left:2px}.card-number[data-v-b8809c5a]{font-size:80px}.value-number[data-v-b8809c5a]{font-size:80px;color:#66d045;text-shadow:0 0 11px #225114;-webkit-text-stroke-width:2px;-webkit-text-stroke-color:#fff}.flip-container[data-v-b8809c5a]{width:26vh;height:21vh;margin-bottom:20px;position:relative;-webkit-perspective:800px;-ms-perspective:800px;perspective:800px;border-radius:4px}.card[data-v-b8809c5a]{-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275),-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 6px 16px rgba(0,0,0,.15);cursor:pointer}.card[data-v-b8809c5a],.card div[data-v-b8809c5a]{width:100%;height:100%;position:absolute;border-radius:6px}.card div[data-v-b8809c5a]{-webkit-backface-visibility:hidden;backface-visibility:hidden;background:#fff;display:-webkit-box;display:-ms-flexbox;display:box;display:flex;-webkit-box-pack:center;-o-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-o-box-align:center;-ms-flex-align:center;align-items:center;font:16px/1.5 Helvetica Neue,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;color:#47525d}.card .back[data-v-b8809c5a],.card.flipped[data-v-b8809c5a]{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}", ""]);
+exports.push([module.i, ".statistic[data-v-b35f5a54]{cursor:pointer;margin:auto}.hotseat[data-v-b35f5a54]{background:rgba(0,0,0,.4)}.hotseat2[data-v-b35f5a54],.hotseat[data-v-b35f5a54]{padding-left:20px;padding-right:20px;padding-bottom:20px}.game-button[data-v-b35f5a54]{width:100%;height:400px;font-size:90px!important}.game-input[data-v-b35f5a54]{width:100%;height:190px;font-size:80px!important;margin-top:150px}", ""]);
 
 // exports
 
@@ -63544,7 +63547,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, ".statistic[data-v-f8d29df2]{cursor:pointer}.hotseat[data-v-f8d29df2]{background:rgba(0,0,0,.4)}.hotseat2[data-v-f8d29df2],.hotseat[data-v-f8d29df2]{padding-left:20px;padding-right:20px;padding-bottom:20px}.game-button[data-v-f8d29df2]{width:100%;height:400px;font-size:90px!important}.game-input[data-v-f8d29df2]{width:100%;height:190px;font-size:80px!important;margin-top:150px}", ""]);
+exports.push([module.i, ".toolbar[data-v-b8809c5a]{position:absolute;top:2px;left:2px}.card-number[data-v-b8809c5a]{font-size:80px}.value-number[data-v-b8809c5a]{font-size:80px;color:#66d045;text-shadow:0 0 11px #225114;-webkit-text-stroke-width:2px;-webkit-text-stroke-color:#fff}.flip-container[data-v-b8809c5a]{width:26vh;height:21vh;margin-bottom:20px;position:relative;-webkit-perspective:800px;-ms-perspective:800px;perspective:800px;border-radius:4px}.card[data-v-b8809c5a]{-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275),-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 6px 16px rgba(0,0,0,.15);cursor:pointer}.card[data-v-b8809c5a],.card div[data-v-b8809c5a]{width:100%;height:100%;position:absolute;border-radius:6px}.card div[data-v-b8809c5a]{-webkit-backface-visibility:hidden;backface-visibility:hidden;background:#fff;display:-webkit-box;display:-ms-flexbox;display:box;display:flex;-webkit-box-pack:center;-o-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-o-box-align:center;-ms-flex-align:center;align-items:center;font:16px/1.5 Helvetica Neue,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;color:#47525d}.card .back[data-v-b8809c5a],.card.flipped[data-v-b8809c5a]{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}", ""]);
 
 // exports
 
@@ -67311,10 +67314,10 @@ module.exports = __webpack_require__.p + "fee66e712a8a08eef5805a46892932ad.woff"
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Zonk_vue__ = __webpack_require__(20);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b8809c5a_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Zonk_vue__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b8809c5a_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Zonk_vue__ = __webpack_require__(223);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(10);
 function injectStyle (context) {
-  __webpack_require__(226)
+  __webpack_require__(227)
 }
 /* script */
 
@@ -67372,7 +67375,7 @@ var staticRenderFns = []
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('div',{staticClass:"toolbar"},[(_vm.activeTeamPoints)?_c('div',{staticClass:"ui olive huge label"},[_c('span',[_vm._v(" "+_vm._s(_vm.teamName)+" Accumulated: "+_vm._s(_vm.activeTeamPoints))]),_vm._v("\n               Next card worth  = X "+_vm._s(_vm.pickNumber)+"\n        ")]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"toolbar-right"}),_vm._v(" "),_c('div',{staticClass:"ui grid"},[_c('div',{staticClass:"six column row"},_vm._l((_vm.cards),function(card,index){return _c('div',{staticClass:"column"},[_c('div',{staticClass:"flip-container"},[_c('div',{staticClass:"card",class:{'flipped': card.flipped},on:{"click":function($event){_vm.flip(index)}}},[_c('div',{staticClass:"front"},[_c('h1',{staticClass:"card-number"},[_vm._v(_vm._s(index + 1))])]),_vm._v(" "),_c('div',{staticClass:"back"},[(card.value > 0)?_c('h1',{staticClass:"value-number"},[(card.flipped)?_c('span',[_vm._v("\n                                    "+_vm._s(card.value)+"\n                                ")]):_c('span',[_vm._v("\n                                    "+_vm._s(card.value * _vm.pickNumber)+"\n                                ")])]):_c('h1',[_c('img',{attrs:{"src":"/static/img/zonk.png","alt":""}})])])])])])}))])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.zonkOn),expression:"!zonkOn"}],staticClass:"hotseat"},[(_vm.name)?_c('h1',{staticStyle:{"text-align":"center","font-size":"110px","margin-top":"-30px"}},[_vm._v("Hotseat: "),_c('span',{staticStyle:{"color":"rgb(237, 241, 95)"}},[_vm._v(_vm._s(_vm.name))])]):_c('h1',{staticStyle:{"text-align":"center","font-size":"110px","color":"rgb(237, 241, 95)","margin-top":"-30px"}},[_vm._v("waiting...")])]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.zonkOn),expression:"!zonkOn"}],staticClass:"hotseat2"},[_c('div',{staticClass:"ui statistics"},_vm._l((_vm.players),function(player,index){return _c('div',{staticClass:"red statistic",on:{"click":function($event){_vm.selectTeam(index)}}},[_c('div',{staticClass:"value",staticStyle:{"color":"#f9ff03 !important"},style:(_vm.pointStyle)},[_vm._v("\n                    "+_vm._s(_vm.formatNumber(player.points))+"\n                ")]),_vm._v(" "),_c('div',{staticClass:"label",staticStyle:{"color":"#fff !important","margin-top":"10px"},style:(_vm.nameStyle)},[_vm._v("\n                    "+_vm._s(_vm.truncate(player.name))+"\n                ")])])}))]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.zonkOn),expression:"zonkOn"}],staticClass:"zonk-game"},[_c('Zonk',{attrs:{"teamName":_vm.name},on:{"playDone":_vm.stopPlay}})],1)])}
 var staticRenderFns = []
 
 
@@ -67383,7 +67386,7 @@ var staticRenderFns = []
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.zonkOn),expression:"!zonkOn"}],staticClass:"hotseat"},[(_vm.name)?_c('h1',{staticStyle:{"text-align":"center","font-size":"110px","margin-top":"-30px"}},[_vm._v("Hotseat: "),_c('span',{staticStyle:{"color":"rgb(237, 241, 95)"}},[_vm._v(_vm._s(_vm.name))])]):_c('h1',{staticStyle:{"text-align":"center","font-size":"110px","color":"rgb(237, 241, 95)","margin-top":"-30px"}},[_vm._v("waiting...")])]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.zonkOn),expression:"!zonkOn"}],staticClass:"hotseat2"},[_c('div',{staticClass:"ui statistics"},_vm._l((_vm.players),function(player,index){return _c('div',{staticClass:"red statistic",on:{"click":function($event){_vm.selectTeam(index)}}},[_c('div',{staticClass:"value",staticStyle:{"color":"#f9ff03 !important"},style:(_vm.pointStyle)},[_vm._v("\n                    "+_vm._s(player.points)+"\n                ")]),_vm._v(" "),_c('div',{staticClass:"label",staticStyle:{"color":"#fff !important","margin-top":"10px"},style:(_vm.nameStyle)},[_vm._v("\n                    "+_vm._s(_vm.truncate(player.name))+"\n                ")])])}))]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.zonkOn),expression:"zonkOn"}],staticClass:"zonk-game"},[_c('Zonk',{attrs:{"teamName":_vm.name},on:{"playDone":_vm.stopPlay}})],1)])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('div',{staticClass:"toolbar"},[(_vm.activeTeamPoints)?_c('div',{staticClass:"ui olive huge label"},[_c('span',[_vm._v(" "+_vm._s(_vm.teamName)+" Accumulated: "+_vm._s(_vm.activeTeamPoints))]),_vm._v("\n               Next card worth  = X "+_vm._s(_vm.pickNumber)+"\n        ")]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"toolbar-right"}),_vm._v(" "),_c('div',{staticClass:"ui grid"},[_c('div',{staticClass:"six column row"},_vm._l((_vm.cards),function(card,index){return _c('div',{staticClass:"column"},[_c('div',{staticClass:"flip-container"},[_c('div',{staticClass:"card",class:{'flipped': card.flipped},on:{"click":function($event){_vm.flip(index)}}},[_c('div',{staticClass:"front"},[_c('h1',{staticClass:"card-number"},[_vm._v(_vm._s(index + 1))])]),_vm._v(" "),_c('div',{staticClass:"back"},[(card.value > 0)?_c('h1',{staticClass:"value-number"},[(card.flipped)?_c('span',[_vm._v("\n                                    "+_vm._s(card.value)+"\n                                ")]):_c('span',[_vm._v("\n                                    "+_vm._s(card.value * _vm.pickNumber)+"\n                                ")])]):_c('h1',[_c('img',{attrs:{"src":"/static/img/zonk.png","alt":""}})])])])])])}))])])}
 var staticRenderFns = []
 
 
@@ -67427,7 +67430,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(11).default
-var update = add("57ba2a82", content, true, {});
+var update = add("18098294", content, true, {});
 
 /***/ }),
 /* 227 */
@@ -67441,7 +67444,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(11).default
-var update = add("b773a6e8", content, true, {});
+var update = add("57ba2a82", content, true, {});
 
 /***/ }),
 /* 228 */
@@ -67486,4 +67489,4 @@ function listToStyles (parentId, list) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main_js.8f1b8d5dde29e305fa2f.js.map
+//# sourceMappingURL=main_js.1504aa4f1c576f1a1366.js.map
