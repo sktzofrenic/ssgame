@@ -21,7 +21,8 @@
             </div>
         </div>
         <div class="zonk-game" v-show="zonkOn">
-            <Zonk :teamName="name" @playDone="stopPlay"/>
+            <!-- <Zonk :teamName="name" @playDone="stopPlay"/> -->
+            <Trivia :teamName="name" @playDone="stopPlay"/>
         </div>
     </div>
 </template>
@@ -30,6 +31,7 @@
 import {socket} from './socket.js'
 import _ from 'lodash'
 import Zonk from './Zonk.vue'
+import Trivia from './Trivia.vue'
 import Mousetrap from 'mousetrap'
 
 export default {
@@ -43,7 +45,8 @@ export default {
         }
     },
     components: {
-        Zonk
+        Zonk,
+        Trivia
     },
     computed: {
         nameStyle() {
