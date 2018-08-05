@@ -104,7 +104,7 @@ export default {
                 vm.history.push('no')
                 vm.revealReference = true
                 vm.loadQuestion()
-                var audio = new Audio('/static/audio/evillaugh.mp3')
+                var audio = new Audio('/static/audio/wrong.wav')
                 audio.play()
             }
         },
