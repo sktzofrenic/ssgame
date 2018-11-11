@@ -123,6 +123,10 @@ export default {
             var vm = this
             let q1 = vm.getRandVerse()
             let q2 = vm.getRandVerse()
+            vm.references = {
+                correct: '',
+                incorrect: ''
+            }
             $.get(`https://bible-api.com/${q1.book} ${q1.chapter}:${q1.verse}?translation=kjv`, function (data) {
                 console.log(data, 'q1');
                 vm.revealReference = false

@@ -5,6 +5,7 @@ from flask import Flask, render_template
 from ssgame import commands, public, user, sockets
 from ssgame.extensions import bcrypt, cache, csrf_protect, db, login_manager, migrate, webpack, socketio
 from ssgame.settings import ProdConfig
+from danwinsrx.utils import sha256_checksum
 
 
 def create_app(config_object=ProdConfig):
@@ -19,6 +20,7 @@ def create_app(config_object=ProdConfig):
     register_errorhandlers(app)
     register_shellcontext(app)
     register_commands(app)
+
     return app
 
 
