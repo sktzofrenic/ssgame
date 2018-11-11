@@ -34,6 +34,14 @@ def home():
     return render_template('public/home.html', form=form)
 
 
+@blueprint.route('/apple', methods=['GET', 'POST'])
+def apple():
+    """Home page."""
+    form = LoginForm(request.form)
+
+    return render_template('public/home.html', form=form)
+
+
 @blueprint.route('/logout/')
 @login_required
 def logout():
