@@ -51,9 +51,9 @@ export default {
     },
     props: ['teamName'],
     methods: {
-        getRandVerse () {
+        getRandVerse (bookIndex) {
             var vm = this
-            let book = books[vm.getRandomInt(0, 65)]
+            let book = books[bookIndex ? bookIndex : vm.getRandomInt(0, 65)]
             let chapter = vm.getRandomInt(0, book.chapters.length)
             let verse = vm.getRandomInt(1, book.chapters[chapter] + 1)
 
@@ -121,8 +121,14 @@ export default {
         },
         loadQuestion () {
             var vm = this
-            let q1 = vm.getRandVerse()
-            let q2 = vm.getRandVerse()
+            var book = vm.getRandomInt(0, 65)
+            if (book == 65) {
+                var secondBook = book - 1
+            } else {
+                var secondBook = book + 1
+            }
+            let q1 = vm.getRandVerse(book)
+            let q2 = vm.getRandVerse(secondBook)
             vm.references = {
                 correct: '',
                 incorrect: ''
