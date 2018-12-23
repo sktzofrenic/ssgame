@@ -30,7 +30,7 @@
 <script>
 import Mousetrap from 'mousetrap'
 import $ from 'jquery'
-const books = require('./books.json')
+var books = require('./books.json')
 export default {
     data () {
         return {
@@ -53,9 +53,9 @@ export default {
     methods: {
         getRandVerse (bookIndex) {
             var vm = this
-            let book = books[bookIndex ? bookIndex : vm.getRandomInt(0, 65)]
-            let chapter = vm.getRandomInt(0, book.chapters.length)
-            let verse = vm.getRandomInt(1, book.chapters[chapter] + 1)
+            var book = books[bookIndex ? bookIndex : vm.getRandomInt(0, 65)]
+            var chapter = vm.getRandomInt(0, book.chapters.length)
+            var verse = vm.getRandomInt(1, book.chapters[chapter] + 1)
 
             book = book.id
             chapter = chapter + 1
@@ -91,7 +91,7 @@ export default {
             if (!vm.timerRunning) {
                 vm.timerAction('start')
             }
-            if (vm.references.correct.verses[0].book_name === answer) {
+            if (vm.references.correct.book_testament_genre.book === answer) {
                 vm.points = (100 * vm.streak) + vm.points
                 vm.streak += 1
                 vm.history.push('yes')
@@ -100,6 +100,7 @@ export default {
                 var audio = new Audio('/static/audio/positive.wav')
                 audio.play()
             } else {
+                vm.points = vm.points - 100
                 vm.streak = 1
                 vm.history.push('no')
                 vm.revealReference = true
@@ -127,24 +128,21 @@ export default {
             } else {
                 var secondBook = book + 1
             }
-            let q1 = vm.getRandVerse(book)
-            let q2 = vm.getRandVerse(secondBook)
+            var q1 = vm.getRandVerse(book)
+            var q2 = vm.getRandVerse(secondBook)
             vm.references = {
                 correct: '',
                 incorrect: ''
             }
-            $.get(`https://bible-api.com/${q1.book} ${q1.chapter}:${q1.verse}?translation=kjv`, function (data) {
+            vm.answers = []
+            $.get(`/get-bible`, function (data) {
                 console.log(data, 'q1');
                 vm.revealReference = false
-                vm.references.correct = data
-                $.get(`https://bible-api.com/${q2.book} ${q2.chapter}:${q2.verse}?translation=kjv`, function (data) {
-                    console.log(data, 'q2');
-                    vm.references.incorrect = data
-                    vm.answers = []
-                    vm.answers.push(vm.references.correct.verses[0].book_name)
-                    vm.answers.push(vm.references.incorrect.verses[0].book_name)
-                    vm.answers = vm.shuffle(vm.answers)
-                })
+                vm.references.correct = data.correct
+                vm.references.incorrect = data.incorrect
+                vm.answers.push(vm.references.correct.book_testament_genre.book)
+                vm.answers.push(vm.references.incorrect.book_testament_genre.book)
+                vm.answers = vm.shuffle(vm.answers)
             })
         },
         getRandomInt(min, max) {

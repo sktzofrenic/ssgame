@@ -8,6 +8,8 @@ from ssgame.public.forms import LoginForm
 from ssgame.user.forms import RegisterForm
 from ssgame.user.models import User, EnglishAbbreviationsKey, EnglishKey, GenreKey, BibleVerse
 from ssgame.utils import flash_errors
+from ssgame.public.bible_data import json_data
+import random
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
 
@@ -16,6 +18,40 @@ blueprint = Blueprint('public', __name__, static_folder='../static')
 def load_user(user_id):
     """Load user by ID."""
     return User.get_by_id(int(user_id))
+
+
+@blueprint.route('/get-bible', methods=['GET', 'POST'])
+def get_bible():
+
+    first_book = random.randint(0, 66)
+
+    if first_book == 65:
+        second_book = 64
+    else:
+        second_book = first_book + 1
+
+    first_chapter = random.choice(range(len(json_data[first_book]['chapters'])))
+    first_verse = random.choice(range(json_data[first_book]['chapters'][first_chapter]))
+
+    first = BibleVerse.query.filter(
+        (BibleVerse.b == first_book + 1) &
+        (BibleVerse.c == first_chapter + 1) &
+        (BibleVerse.v == first_verse + 1)
+    ).first()
+
+    second_chapter = random.choice(range(len(json_data[second_book]['chapters'])))
+    second_verse = random.choice(range(json_data[second_book]['chapters'][second_chapter]))
+
+    second = BibleVerse.query.filter(
+        (BibleVerse.b == second_book + 1) &
+        (BibleVerse.c == second_chapter + 1) &
+        (BibleVerse.v == second_verse + 1)
+    ).first()
+    
+    return jsonify({
+        'correct': first.serialized,
+        'incorrect': second.serialized
+    })
 
 
 @blueprint.route('/api', methods=['GET', 'POST'])

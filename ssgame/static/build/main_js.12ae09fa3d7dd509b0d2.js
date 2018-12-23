@@ -16600,13 +16600,13 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global define:false */
     },
     computed: {
         nameStyle() {
-            let fontSize = this.players.length > 6 ? 50 : 250 / this.players.length;
+            var fontSize = this.players.length > 6 ? 50 : 250 / this.players.length;
             return {
                 'font-size': fontSize + 'px !important'
             };
         },
         pointStyle() {
-            let fontSize = this.players.length > 6 ? 100 : 500 / this.players.length;
+            var fontSize = this.players.length > 6 ? 100 : 500 / this.players.length;
             return {
                 'font-size': fontSize + 'px !important'
             };
@@ -16780,7 +16780,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global define:false */
 
 
 
-const books = __webpack_require__(147);
+var books = __webpack_require__(147);
 /* harmony default export */ __webpack_exports__["a"] = ({
     data() {
         return {
@@ -16803,9 +16803,9 @@ const books = __webpack_require__(147);
     methods: {
         getRandVerse(bookIndex) {
             var vm = this;
-            let book = books[bookIndex ? bookIndex : vm.getRandomInt(0, 65)];
-            let chapter = vm.getRandomInt(0, book.chapters.length);
-            let verse = vm.getRandomInt(1, book.chapters[chapter] + 1);
+            var book = books[bookIndex ? bookIndex : vm.getRandomInt(0, 65)];
+            var chapter = vm.getRandomInt(0, book.chapters.length);
+            var verse = vm.getRandomInt(1, book.chapters[chapter] + 1);
 
             book = book.id;
             chapter = chapter + 1;
@@ -16841,7 +16841,7 @@ const books = __webpack_require__(147);
             if (!vm.timerRunning) {
                 vm.timerAction('start');
             }
-            if (vm.references.correct.verses[0].book_name === answer) {
+            if (vm.references.correct.book_testament_genre.book === answer) {
                 vm.points = 100 * vm.streak + vm.points;
                 vm.streak += 1;
                 vm.history.push('yes');
@@ -16850,6 +16850,7 @@ const books = __webpack_require__(147);
                 var audio = new Audio('/static/audio/positive.wav');
                 audio.play();
             } else {
+                vm.points = vm.points - 100;
                 vm.streak = 1;
                 vm.history.push('no');
                 vm.revealReference = true;
@@ -16877,24 +16878,21 @@ const books = __webpack_require__(147);
             } else {
                 var secondBook = book + 1;
             }
-            let q1 = vm.getRandVerse(book);
-            let q2 = vm.getRandVerse(secondBook);
+            var q1 = vm.getRandVerse(book);
+            var q2 = vm.getRandVerse(secondBook);
             vm.references = {
                 correct: '',
                 incorrect: ''
             };
-            __WEBPACK_IMPORTED_MODULE_1_jquery___default.a.get(`https://bible-api.com/${q1.book} ${q1.chapter}:${q1.verse}?translation=kjv`, function (data) {
+            vm.answers = [];
+            __WEBPACK_IMPORTED_MODULE_1_jquery___default.a.get(`/get-bible`, function (data) {
                 console.log(data, 'q1');
                 vm.revealReference = false;
-                vm.references.correct = data;
-                __WEBPACK_IMPORTED_MODULE_1_jquery___default.a.get(`https://bible-api.com/${q2.book} ${q2.chapter}:${q2.verse}?translation=kjv`, function (data) {
-                    console.log(data, 'q2');
-                    vm.references.incorrect = data;
-                    vm.answers = [];
-                    vm.answers.push(vm.references.correct.verses[0].book_name);
-                    vm.answers.push(vm.references.incorrect.verses[0].book_name);
-                    vm.answers = vm.shuffle(vm.answers);
-                });
+                vm.references.correct = data.correct;
+                vm.references.incorrect = data.incorrect;
+                vm.answers.push(vm.references.correct.book_testament_genre.book);
+                vm.answers.push(vm.references.incorrect.book_testament_genre.book);
+                vm.answers = vm.shuffle(vm.answers);
             });
         },
         getRandomInt(min, max) {
@@ -46179,10 +46177,10 @@ __webpack_require__(173);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(7);
 /* empty harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_657027ba_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_657027ba_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(3);
 function injectStyle (context) {
-  __webpack_require__(190)
+  __webpack_require__(191)
 }
 /* script */
 
@@ -46259,10 +46257,10 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_GameMaster_vue__ = __webpack_require__(9);
 /* empty harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5d02e9cc_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_63c1d44c_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(3);
 function injectStyle (context) {
-  __webpack_require__(189)
+  __webpack_require__(190)
 }
 /* script */
 
@@ -46274,14 +46272,14 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-5d02e9cc"
+var __vue_scopeId__ = "data-v-63c1d44c"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
 var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_GameMaster_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5d02e9cc_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5d02e9cc_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_63c1d44c_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_63c1d44c_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_GameMaster_vue__["b" /* staticRenderFns */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -59611,7 +59609,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, ".statistic[data-v-5d02e9cc]{cursor:pointer;margin:auto}.hotseat[data-v-5d02e9cc]{background:rgba(0,0,0,.4)}.hotseat2[data-v-5d02e9cc],.hotseat[data-v-5d02e9cc]{padding-left:20px;padding-right:20px;padding-bottom:20px}.game-button[data-v-5d02e9cc]{width:100%;height:400px;font-size:90px!important}.game-input[data-v-5d02e9cc]{width:100%;height:190px;font-size:80px!important;margin-top:150px}", ""]);
+exports.push([module.i, ".toolbar-right[data-v-3ebfac76]{position:absolute;right:20px;top:20px;font-size:60px;background:#fff;padding:30px 20px;border-radius:20px;box-shadow:10px 10px red;border:1px solid red}.history-items[data-v-3ebfac76]{position:absolute;top:50px;width:70%}.timer[data-v-3ebfac76]{color:red}.verse-text[data-v-3ebfac76]{display:block;margin-bottom:50px}.answer-one[data-v-3ebfac76]{float:left}.answer-two[data-v-3ebfac76]{float:right}.answer-one[data-v-3ebfac76],.answer-two[data-v-3ebfac76]{cursor:pointer;background:#e6e6e6;padding:10px 20px;border-radius:20px;box-shadow:10px 10px #828282}.main-area[data-v-3ebfac76]{background-color:#fff;font-size:50px;line-height:65px;padding:60px}.toolbar[data-v-3ebfac76]{position:absolute;top:2px;left:2px}.card-number[data-v-3ebfac76]{font-size:80px}.value-number[data-v-3ebfac76]{font-size:80px;color:#66d045;text-shadow:0 0 11px #225114;-webkit-text-stroke-width:2px;-webkit-text-stroke-color:#fff}.flip-container[data-v-3ebfac76]{width:26vh;height:21vh;margin-bottom:20px;position:relative;-webkit-perspective:800px;-ms-perspective:800px;perspective:800px;border-radius:4px}.card[data-v-3ebfac76]{-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275),-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 6px 16px rgba(0,0,0,.15);cursor:pointer}.card[data-v-3ebfac76],.card div[data-v-3ebfac76]{width:100%;height:100%;position:absolute;border-radius:6px}.card div[data-v-3ebfac76]{-webkit-backface-visibility:hidden;backface-visibility:hidden;background:#fff;display:-webkit-box;display:-ms-flexbox;display:box;display:flex;-webkit-box-pack:center;-o-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-o-box-align:center;-ms-flex-align:center;align-items:center;font:16px/1.5 Helvetica Neue,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;color:#47525d}.card .back[data-v-3ebfac76],.card.flipped[data-v-3ebfac76]{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}", ""]);
 
 // exports
 
@@ -59625,7 +59623,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".statistic[data-v-63c1d44c]{cursor:pointer;margin:auto}.hotseat[data-v-63c1d44c]{background:rgba(0,0,0,.4)}.hotseat2[data-v-63c1d44c],.hotseat[data-v-63c1d44c]{padding-left:20px;padding-right:20px;padding-bottom:20px}.game-button[data-v-63c1d44c]{width:100%;height:400px;font-size:90px!important}.game-input[data-v-63c1d44c]{width:100%;height:190px;font-size:80px!important;margin-top:150px}", ""]);
 
 // exports
 
@@ -59639,7 +59637,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, ".toolbar-right[data-v-7cf45232]{position:absolute;right:20px;top:20px;font-size:60px;background:#fff;padding:30px 20px;border-radius:20px;box-shadow:10px 10px red;border:1px solid red}.history-items[data-v-7cf45232]{position:absolute;top:50px;width:70%}.timer[data-v-7cf45232]{color:red}.verse-text[data-v-7cf45232]{display:block;margin-bottom:50px}.answer-one[data-v-7cf45232]{float:left}.answer-two[data-v-7cf45232]{float:right}.answer-one[data-v-7cf45232],.answer-two[data-v-7cf45232]{cursor:pointer;background:#e6e6e6;padding:10px 20px;border-radius:20px;box-shadow:10px 10px #828282}.main-area[data-v-7cf45232]{background-color:#fff;font-size:50px;line-height:65px;padding:60px}.toolbar[data-v-7cf45232]{position:absolute;top:2px;left:2px}.card-number[data-v-7cf45232]{font-size:80px}.value-number[data-v-7cf45232]{font-size:80px;color:#66d045;text-shadow:0 0 11px #225114;-webkit-text-stroke-width:2px;-webkit-text-stroke-color:#fff}.flip-container[data-v-7cf45232]{width:26vh;height:21vh;margin-bottom:20px;position:relative;-webkit-perspective:800px;-ms-perspective:800px;perspective:800px;border-radius:4px}.card[data-v-7cf45232]{-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275);transition:transform .8s cubic-bezier(.175,.885,.32,1.275),-webkit-transform .8s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 6px 16px rgba(0,0,0,.15);cursor:pointer}.card[data-v-7cf45232],.card div[data-v-7cf45232]{width:100%;height:100%;position:absolute;border-radius:6px}.card div[data-v-7cf45232]{-webkit-backface-visibility:hidden;backface-visibility:hidden;background:#fff;display:-webkit-box;display:-ms-flexbox;display:box;display:flex;-webkit-box-pack:center;-o-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-o-box-align:center;-ms-flex-align:center;align-items:center;font:16px/1.5 Helvetica Neue,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;color:#47525d}.card .back[data-v-7cf45232],.card.flipped[data-v-7cf45232]{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -69613,10 +69611,10 @@ module.exports = __webpack_require__.p + "fee66e712a8a08eef5805a46892932ad.woff"
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Trivia_vue__ = __webpack_require__(10);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7cf45232_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Trivia_vue__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3ebfac76_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Trivia_vue__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(3);
 function injectStyle (context) {
-  __webpack_require__(191)
+  __webpack_require__(189)
 }
 /* script */
 
@@ -69628,14 +69626,14 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-7cf45232"
+var __vue_scopeId__ = "data-v-3ebfac76"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
 var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Trivia_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7cf45232_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Trivia_vue__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7cf45232_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Trivia_vue__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3ebfac76_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Trivia_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3ebfac76_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Trivia_vue__["b" /* staticRenderFns */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -69702,7 +69700,7 @@ var staticRenderFns = []
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.zonkOn),expression:"!zonkOn"}],staticClass:"hotseat"},[(_vm.name)?_c('h1',{staticStyle:{"text-align":"center","font-size":"110px","margin-top":"-30px","color":"#fff"}},[_vm._v("Hotseat: "),_c('span',{staticStyle:{"color":"rgb(237, 241, 95)"}},[_vm._v(_vm._s(_vm.name))])]):_c('h1',{staticStyle:{"text-align":"center","font-size":"110px","color":"rgb(237, 241, 95)","margin-top":"-30px"}},[_vm._v("waiting...")])]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.zonkOn),expression:"!zonkOn"}],staticClass:"hotseat2"},[_c('div',{staticClass:"ui statistics"},_vm._l((_vm.players),function(player,index){return _c('div',{staticClass:"red statistic",on:{"click":function($event){_vm.selectTeam(index)}}},[_c('div',{staticClass:"value",staticStyle:{"color":"#f9ff03 !important"},style:(_vm.pointStyle)},[_vm._v("\n                    "+_vm._s(_vm.formatNumber(player.points))+"\n                ")]),_vm._v(" "),_c('div',{staticClass:"label",staticStyle:{"color":"#fff !important","margin-top":"10px"},style:(_vm.nameStyle)},[_vm._v("\n                    "+_vm._s(_vm.truncate(player.name))+"\n                ")])])}))]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.zonkOn),expression:"zonkOn"}],staticClass:"zonk-game"},[_c('Trivia',{attrs:{"teamName":_vm.name},on:{"playDone":_vm.stopPlay}})],1)])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"toolbar"},[_c('div',{staticClass:"ui olive huge label"},[_c('span',[_vm._v(" "+_vm._s(_vm.teamName)+" Accumulated: "+_vm._s(_vm.points))])])]),_vm._v(" "),_c('div',{staticClass:"toolbar-right"},[_c('span',{staticClass:"timer"},[_vm._v(_vm._s(_vm.timer)+" s")])]),_vm._v(" "),_c('div',{staticClass:"ui grid main-area"},[_c('div',{staticClass:"ui horizontal list history-items"},[_vm._l((_vm.history),function(h){return _c('div',{staticClass:"item"},[(h == 'yes')?_c('span',[_c('i',{staticClass:"fa fa-check",staticStyle:{"font-size":"30px","color":"green"}})]):_c('span',{staticStyle:{"font-size":"30px","color":"red"}},[_c('i',{staticClass:"fa fa-close"})])])}),_vm._v(" "),_c('div',{staticClass:"item",staticStyle:{"font-size":"30px"}},[_vm._v("x "+_vm._s(_vm.streak))])],2),_vm._v(" "),_c('div',{staticClass:"one column row"},[_c('div',{staticClass:"column"},[_c('span',{staticClass:"verse-text"},[_vm._v(_vm._s(_vm.references.correct.text)+"  "),(_vm.revealReference)?_c('span',[_vm._v(_vm._s(_vm.references.correct.reference))]):_vm._e()]),_vm._v(" "),(_vm.answers)?_c('span',{staticClass:"answer-one",on:{"click":function($event){_vm.checkAnswer(_vm.answers[0])}}},[_vm._v(_vm._s(_vm.answers[0]))]):_vm._e(),_vm._v(" "),(_vm.answers)?_c('span',{staticClass:"answer-two",on:{"click":function($event){_vm.checkAnswer(_vm.answers[1])}}},[_vm._v(_vm._s(_vm.answers [1]))]):_vm._e()])])])])}
 var staticRenderFns = []
 
 
@@ -69713,7 +69711,7 @@ var staticRenderFns = []
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{},[_c('p',[_vm._v(_vm._s(_vm.msg))])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.zonkOn),expression:"!zonkOn"}],staticClass:"hotseat"},[(_vm.name)?_c('h1',{staticStyle:{"text-align":"center","font-size":"110px","margin-top":"-30px","color":"#fff"}},[_vm._v("Hotseat: "),_c('span',{staticStyle:{"color":"rgb(237, 241, 95)"}},[_vm._v(_vm._s(_vm.name))])]):_c('h1',{staticStyle:{"text-align":"center","font-size":"110px","color":"rgb(237, 241, 95)","margin-top":"-30px"}},[_vm._v("waiting...")])]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.zonkOn),expression:"!zonkOn"}],staticClass:"hotseat2"},[_c('div',{staticClass:"ui statistics"},_vm._l((_vm.players),function(player,index){return _c('div',{staticClass:"red statistic",on:{"click":function($event){_vm.selectTeam(index)}}},[_c('div',{staticClass:"value",staticStyle:{"color":"#f9ff03 !important"},style:(_vm.pointStyle)},[_vm._v("\n                    "+_vm._s(_vm.formatNumber(player.points))+"\n                ")]),_vm._v(" "),_c('div',{staticClass:"label",staticStyle:{"color":"#fff !important","margin-top":"10px"},style:(_vm.nameStyle)},[_vm._v("\n                    "+_vm._s(_vm.truncate(player.name))+"\n                ")])])}))]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.zonkOn),expression:"zonkOn"}],staticClass:"zonk-game"},[_c('Trivia',{attrs:{"teamName":_vm.name},on:{"playDone":_vm.stopPlay}})],1)])}
 var staticRenderFns = []
 
 
@@ -69724,7 +69722,7 @@ var staticRenderFns = []
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"toolbar"},[_c('div',{staticClass:"ui olive huge label"},[_c('span',[_vm._v(" "+_vm._s(_vm.teamName)+" Accumulated: "+_vm._s(_vm.points))])])]),_vm._v(" "),_c('div',{staticClass:"toolbar-right"},[_c('span',{staticClass:"timer"},[_vm._v(_vm._s(_vm.timer)+" s")])]),_vm._v(" "),_c('div',{staticClass:"ui grid main-area"},[_c('div',{staticClass:"ui horizontal list history-items"},[_vm._l((_vm.history),function(h){return _c('div',{staticClass:"item"},[(h == 'yes')?_c('span',[_c('i',{staticClass:"fa fa-check",staticStyle:{"font-size":"30px","color":"green"}})]):_c('span',{staticStyle:{"font-size":"30px","color":"red"}},[_c('i',{staticClass:"fa fa-close"})])])}),_vm._v(" "),_c('div',{staticClass:"item",staticStyle:{"font-size":"30px"}},[_vm._v("x "+_vm._s(_vm.streak))])],2),_vm._v(" "),_c('div',{staticClass:"one column row"},[_c('div',{staticClass:"column"},[_c('span',{staticClass:"verse-text"},[_vm._v(_vm._s(_vm.references.correct.text)+"  "),(_vm.revealReference)?_c('span',[_vm._v(_vm._s(_vm.references.correct.reference))]):_vm._e()]),_vm._v(" "),(_vm.answers)?_c('span',{staticClass:"answer-one",on:{"click":function($event){_vm.checkAnswer(_vm.answers[0])}}},[_vm._v(_vm._s(_vm.answers[0]))]):_vm._e(),_vm._v(" "),(_vm.answers)?_c('span',{staticClass:"answer-two",on:{"click":function($event){_vm.checkAnswer(_vm.answers[1])}}},[_vm._v(_vm._s(_vm.answers [1]))]):_vm._e()])])])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{},[_c('p',[_vm._v(_vm._s(_vm.msg))])])}
 var staticRenderFns = []
 
 
@@ -69765,7 +69763,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(4).default
-var update = add("0de31d5e", content, true, {});
+var update = add("020d2a68", content, true, {});
 
 /***/ }),
 /* 190 */
@@ -69779,7 +69777,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(4).default
-var update = add("0040c798", content, true, {});
+var update = add("7d620c39", content, true, {});
 
 /***/ }),
 /* 191 */
@@ -69793,7 +69791,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(4).default
-var update = add("32a3192d", content, true, {});
+var update = add("0040c798", content, true, {});
 
 /***/ }),
 /* 192 */
@@ -69846,4 +69844,4 @@ function listToStyles (parentId, list) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main_js.ec4d1a20c4593d04b969.js.map
+//# sourceMappingURL=main_js.12ae09fa3d7dd509b0d2.js.map

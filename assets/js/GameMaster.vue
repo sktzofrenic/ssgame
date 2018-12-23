@@ -50,13 +50,13 @@ export default {
     },
     computed: {
         nameStyle() {
-            let fontSize = this.players.length > 6 ? 50 : (250 / this.players.length)
+            var fontSize = this.players.length > 6 ? 50 : (250 / this.players.length)
             return {
                 'font-size': fontSize + 'px !important'
             }
         },
         pointStyle() {
-            let fontSize = this.players.length > 6 ? 100 : (500 / this.players.length)
+            var fontSize = this.players.length > 6 ? 100 : (500 / this.players.length)
             return {
                 'font-size': fontSize + 'px !important'
             }
