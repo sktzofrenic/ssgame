@@ -26,6 +26,23 @@ def create_app(config_object=ProdConfig):
         # return dict(build_hash=sha256_checksum(APP_CONFIG.APP_DIR + '/static/build/main.js'))
         return dict(build_hash=random.randint(1, 2000))
 
+    
+    @app.context_processor
+    def inject_vendor():
+        # return dict(build_hash=sha256_checksum(APP_CONFIG.APP_DIR + '/static/build/main.js'))
+        fp = open(ProdConfig.APP_DIR + '/static/build/js/chunk-vendors.js', "r")
+        content = fp.read()
+        fp.close()
+        return dict(vendor=content)
+
+    @app.context_processor
+    def inject_app():
+        # return dict(build_hash=sha256_checksum(APP_CONFIG.APP_DIR + '/static/build/main.js'))
+        fp = open(ProdConfig.APP_DIR + '/static/build/js/app.js', "r")
+        content = fp.read()
+        fp.close()
+        return dict(app=content)
+
     return app
 
 
