@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """Public section, including homepage and signup."""
-from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask import Blueprint, flash, redirect, render_template, request, url_for, jsonify
 from flask_login import login_required, login_user, logout_user
 
-from ssgame.extensions import login_manager
+from ssgame.extensions import login_manager, pusher_client
 from ssgame.public.forms import LoginForm
 from ssgame.user.forms import RegisterForm
-from ssgame.user.models import User
+from ssgame.user.models import User, EnglishAbbreviationsKey, EnglishKey, GenreKey, BibleVerse
 from ssgame.utils import flash_errors
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
@@ -16,6 +16,19 @@ blueprint = Blueprint('public', __name__, static_folder='../static')
 def load_user(user_id):
     """Load user by ID."""
     return User.get_by_id(int(user_id))
+
+
+@blueprint.route('/api', methods=['GET', 'POST'])
+def verse_api():
+    if request.args.get('answer', None):
+        pusher_client.trigger('ssgame-1', 'answer', {'name': request.args.get('name'), 'timestamp': request.args.get('timestamp', None)})
+        return jsonify({
+            'status': 'success'
+        })
+    verse = BibleVerse.query.first()
+    return jsonify({
+        'verse': verse.serialized
+    })
 
 
 @blueprint.route('/', methods=['GET', 'POST'])

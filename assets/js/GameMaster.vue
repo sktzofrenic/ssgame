@@ -165,13 +165,8 @@ export default {
                 })
             } 
         })
-        socket.on('connect', function() {
-            socket.emit('my-event', {
-                data: 'I\'m connected!'
-            })
-        })
-        socket.on('answer', function (data) {
-            console.log(data.data)
+        socket.bind('answer', function (data) {
+            console.log(data)
             if (!vm.name) {
                 vm.possiblePlayers.push(data)
                 var timeout = setTimeout(function () {
@@ -183,7 +178,7 @@ export default {
                     if (!vm.name) {
                         var alert = new Audio('/static/alert.wav')
                         alert.play()
-                        vm.name = vm.possiblePlayers[0].data
+                        vm.name = vm.possiblePlayers[0].name
                         vm.possiblePlayers = []
                     }
                 }, 2000)

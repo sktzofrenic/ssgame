@@ -6,14 +6,19 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_webpack import Webpack
-from flask_wtf.csrf import CSRFProtect
-from flask_socketio import SocketIO
+import pusher
+
+pusher_client = pusher.Pusher(
+  app_id='677956',
+  key='c94fbf647eaf623c10ba',
+  secret='0f879745e026ddfc0dbd',
+  cluster='us2',
+  ssl=True
+)
 
 bcrypt = Bcrypt()
-csrf_protect = CSRFProtect()
 login_manager = LoginManager()
 db = SQLAlchemy()
 migrate = Migrate()
 cache = Cache()
 webpack = Webpack()
-socketio = SocketIO()

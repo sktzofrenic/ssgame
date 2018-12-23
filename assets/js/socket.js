@@ -1,3 +1,8 @@
-import io from 'socket.io-client'
+import Pusher from 'pusher-js'
 
-export const socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port)
+var pusher = new Pusher('c94fbf647eaf623c10ba', {
+      cluster: 'us2',
+      forceTLS: true
+    })
+
+export const socket = pusher.subscribe('ssgame-1');

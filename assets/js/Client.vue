@@ -19,6 +19,7 @@
 <script>
 import {socket} from './socket.js'
 import moment from 'moment'
+import $ from 'jquery'
 
 export default {
     data () {
@@ -33,16 +34,15 @@ export default {
             var vm = this
             var time = moment().valueOf()
             setTimeout(function () {
-                socket.emit('answer', {
-                    data: vm.name,
-                    timestamp: time
+                $.get(`/api?answer=true&name=${vm.name}&timestamp=${time}`, function (data) {
+                    console.log(data)
                 })
             }, vm.delay)
         }
     },
     mounted () {
         var vm = this
-        socket.on('connect', function() {
+        socket.bind('connect', function() {
             console.log('client connected')
             socket.emit('my-event', {
                 data: 'I\'m connected!'

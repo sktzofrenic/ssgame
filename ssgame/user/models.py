@@ -8,6 +8,93 @@ from ssgame.database import Column, Model, SurrogatePK, db, reference_col, relat
 from ssgame.extensions import bcrypt
 
 
+class EnglishAbbreviationsKey(SurrogatePK, Model):
+    """Verse of the Bible"""
+
+    __tablename__ = 'key_abbreviations_english'
+    a = Column(db.Text, unique=True, nullable=False)  # Abbreviation
+    b = Column(db.ForeignKey('{0}.{1}'.format('t_kjv', 'b')), nullable=False)  # Book
+    p = Column(db.Integer, unique=True, nullable=False)  # Primary Abbreviation?
+    bible_verse = relationship('BibleVerse', backref='abbreviations')
+
+    def __init__(self, **kwargs):
+        """Create instance."""
+        db.Model.__init__(self, **kwargs)
+
+    def __repr__(self):
+        """Represent instance as a unique string."""
+        return '<EnglishKey({name})>'.format(name=self.id)
+
+
+class EnglishKey(Model):
+    """Verse of the Bible"""
+
+    __tablename__ = 'key_english'
+    b = Column(db.Integer, unique=True, nullable=False, primary_key=True)  # Book ID
+    n = Column(db.Text, unique=True, nullable=False)  # Name
+    t = Column(db.Text, unique=True, nullable=False)  # Testament
+    g = Column(db.ForeignKey('{0}.{1}'.format('key_genre_english', 'g')), nullable=False)   # Genre
+    genre = relationship('GenreKey', backref='english_keys')
+
+    def __init__(self, **kwargs):
+        """Create instance."""
+        db.Model.__init__(self, **kwargs)
+
+    def __repr__(self):
+        """Represent instance as a unique string."""
+        return '<EnglishKey({name})>'.format(name=self.a)
+
+
+class GenreKey(Model):
+    """Verse of the Bible"""
+
+    __tablename__ = 'key_genre_english'
+    g = Column(db.Integer, unique=True, nullable=False, primary_key=True) 
+    n = Column(db.Text, unique=True, nullable=False)  # Name of Genre
+
+    def __init__(self, **kwargs):
+        """Create instance."""
+        db.Model.__init__(self, **kwargs)
+
+    def __repr__(self):
+        """Represent instance as a unique string."""
+        return '<GenreKey({name})>'.format(name=self.a)
+
+
+
+class BibleVerse(SurrogatePK, Model):
+    """Verse of the Bible"""
+
+    __tablename__ = 't_kjv'
+    b = Column(db.ForeignKey('{0}.{1}'.format('key_english', 'b')), nullable=False)  # Book  # Book
+    c = Column(db.Integer, unique=True, nullable=False)  # Chapter
+    v = Column(db.Integer, unique=True, nullable=False)  # Verse
+    t = Column(db.Text, unique=True, nullable=False)     # Text
+    book_testament_genre = relationship('EnglishKey', backref='bible_verses')
+
+    @property
+    def serialized(self):
+        return {
+            'book': self.b,
+            'chapter': self.c,
+            'verse': self.v,
+            'text': self.t,
+            'book_testament_genre': {
+                'book': self.book_testament_genre.n,
+                'testament': self.book_testament_genre.t,
+                'genre': self.book_testament_genre.genre.n
+            }
+        }
+
+    def __init__(self, **kwargs):
+        """Create instance."""
+        db.Model.__init__(self, **kwargs)
+
+    def __repr__(self):
+        """Represent instance as a unique string."""
+        return '<BibleVerse({name})>'.format(name=self.id)
+
+
 class Role(SurrogatePK, Model):
     """A role for a user."""
 
