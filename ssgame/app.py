@@ -5,6 +5,7 @@ from flask import Flask, render_template
 from ssgame import commands, public, user
 from ssgame.extensions import bcrypt, cache, db, login_manager, migrate, webpack
 from ssgame.settings import ProdConfig
+import random
 
 
 def create_app(config_object=ProdConfig):
@@ -19,6 +20,11 @@ def create_app(config_object=ProdConfig):
     register_errorhandlers(app)
     register_shellcontext(app)
     register_commands(app)
+
+    @app.context_processor
+    def inject_hash():
+        # return dict(build_hash=sha256_checksum(APP_CONFIG.APP_DIR + '/static/build/main.js'))
+        return dict(build_hash=random.randint(1, 2000))
 
     return app
 
