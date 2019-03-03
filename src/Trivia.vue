@@ -79,7 +79,7 @@ export default {
             if (action === 'stop') {
                 clearInterval(vm.timerRunning)
                 vm.timerRunning = false
-                vm.timer = 45
+                vm.timer = 25
             }
             if (action === 'pause') {
                 clearInterval(vm.timerRunning)
@@ -114,7 +114,7 @@ export default {
             this.$emit('playDone', vm.points)
             clearInterval(vm.timerRunning)
             vm.timerRunning = false
-            vm.timer = 45
+            vm.timer = 25
             vm.points = 0
             vm.streak = 1
             vm.history = []
