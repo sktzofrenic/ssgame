@@ -21,8 +21,8 @@
             </div>
         </div>
         <div class="zonk-game" v-show="zonkOn">
-            <!-- <Zonk :teamName="name" @playDone="stopPlay"/> -->
-            <Trivia :teamName="name" @playDone="stopPlay"/>
+            <Zonk :teamName="name" @playDone="stopPlay"/>
+            <!-- <Trivia :teamName="name" @playDone="stopPlay"/> -->
         </div>
     </div>
 </template>
