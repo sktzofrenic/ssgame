@@ -23,7 +23,7 @@ def load_user(user_id):
 @blueprint.route('/get-bible', methods=['GET', 'POST'])
 def get_bible():
 
-    first_book = random.randint(0, 66)
+    first_book = random.randint(0, 65)
 
     if first_book == 65:
         second_book = 64
