@@ -35,7 +35,7 @@ export default {
     data () {
         return {
             points: 0,
-            timer: 45,
+            timer: 25,
             timerRunning: false,
             revealReference: false,
             verse: '',
