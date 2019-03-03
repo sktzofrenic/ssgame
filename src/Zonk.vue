@@ -117,12 +117,12 @@ export default {
             vm.cards.map(function(value) {
                 _.delay(function() {
                     value.flipped = !value.flipped
-                }, Math.floor(Math.random() * 150) + 30)
+                }, Math.floor(Math.random() * 100) + 10)
             })
             vm.cards.map(function(value) {
                 _.delay(function() {
                     value.flipped = !value.flipped
-                }, Math.floor(Math.random() * 500) + 300)
+                }, Math.floor(Math.random() * 300) + 200)
             })
         },
         manualReveal: function () {
