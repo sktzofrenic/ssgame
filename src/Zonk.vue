@@ -24,7 +24,7 @@
 
         </div>
         <div class="ui grid">
-            <div class="six column row">
+            <div class="seven column row">
                 <div class="column" :style="{'margin-top': randomMargin() + 'px'}" v-for="(card, index) in cards">
                     <div class="flip-container">
                         <div class="card" @click="flip(index)" :class="{'flipped': card.flipped}">
@@ -76,13 +76,13 @@ export default {
             var vm = this
             this.changeTeam(this.currentTeam)
             this.cards = []
-            for (var i = 0; i < _.range(24).length; i++) {
+            for (var i = 0; i < _.range(28).length; i++) {
                 var multiplier = 4
-                var cardPossibilities = [0, 0, 0, 100, 100, 200, 300, 400, 500, 500]
+                var cardPossibilities = [0, 0, 0, 0, 100, 100, 200, 300, 400, 500, 500]
                 if (notRisky) {
                     multiplier = 1
                     this.risky = false
-                    cardPossibilities = [0, 0, 0, 100, 100, 200, 300, 400, 500, 500]
+                    cardPossibilities = [0, 0, 0, 0, 100, 100, 200, 300, 400, 500, 500]
                     console.log('not risky')
                 }
                 this.cards.push({
@@ -183,7 +183,8 @@ export default {
         })
         Mousetrap.bind(['0 1', '0 2', '0 3', '0 4', '0 5', '0 6', '0 7', '0 8',
                         '0 9', '1 0', '1 1', '1 2', '1 3', '1 4', '1 5', '1 6',
-                        '1 7', '1 8', '1 9', '2 0', '2 1', '2 2', '2 3', '2 4'], function(e, combo) {
+                        '1 7', '1 8', '1 9', '2 0', '2 1', '2 2', '2 3', '2 4',
+                        '2 5', '2 6', '2 7', '28'], function(e, combo) {
         var number = Number(combo[0] + combo[2])
         vm.flip(number - 1)
 
@@ -226,8 +227,8 @@ export default {
   border-radius: 4px;
 }
 .card {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 90%;
   position: absolute;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -236,8 +237,18 @@ export default {
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border-radius: 6px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   cursor: pointer;
+}
+
+.card:after{
+  content: " ";
+  position:absolute;
+  width: 80%;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  z-index:-1;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 .card div {
   position: absolute;
