@@ -25,7 +25,7 @@
         </div>
         <div class="ui grid">
             <div class="six column row">
-                <div class="column" :style="{'margin-top': randomMargin()}" v-for="(card, index) in cards">
+                <div class="column" :style="{'margin-top': randomMargin() + 'px'}" v-for="(card, index) in cards">
                     <div class="flip-container">
                         <div class="card" @click="flip(index)" :class="{'flipped': card.flipped}">
                             <div class="front"><h1 class="card-number">{{index + 1}}</h1></div>
@@ -78,11 +78,11 @@ export default {
             this.cards = []
             for (var i = 0; i < _.range(24).length; i++) {
                 var multiplier = 4
-                var cardPossibilities = [0, 100, 100, 200, 300, 400, 500, 500]
+                var cardPossibilities = [0, 0, 0, 100, 100, 200, 300, 400, 500, 500]
                 if (notRisky) {
                     multiplier = 1
                     this.risky = false
-                    cardPossibilities = [0, 100, 100, 200, 300, 400, 500, 500]
+                    cardPossibilities = [0, 0, 0, 100, 100, 200, 300, 400, 500, 500]
                     console.log('not risky')
                 }
                 this.cards.push({
