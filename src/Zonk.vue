@@ -25,7 +25,7 @@
         </div>
         <div class="ui grid">
             <div class="six column row">
-                <div class="column" v-for="(card, index) in cards">
+                <div class="column" :style="{'margin-top': randomMargin()}" v-for="(card, index) in cards">
                     <div class="flip-container">
                         <div class="card" @click="flip(index)" :class="{'flipped': card.flipped}">
                             <div class="front"><h1 class="card-number">{{index + 1}}</h1></div>
@@ -130,6 +130,11 @@ export default {
             vm.cards.map(function(value) {
                 value.flipped = !value.flipped
             })
+        },
+        randomMargin () {
+            var num = Math.floor(Math.random()*20) + 1; // this will get a number between 1 and 99;
+            num *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
+            return num
         },
         restart: function () {
             this.teamOneName = ''
