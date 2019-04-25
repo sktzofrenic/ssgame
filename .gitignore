@@ -6,6 +6,8 @@ Pipfile
 *.so
 *.remote-synce.json
 
+.vscode
+
 # Packages
 *.egg
 *.egg-info
