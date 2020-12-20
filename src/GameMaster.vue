@@ -181,7 +181,7 @@ export default {
                         vm.name = vm.possiblePlayers[0].name
                         vm.possiblePlayers = []
                     }
-                }, 2000)
+                }, 500)
             }
         })
     }
