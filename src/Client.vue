@@ -8,7 +8,7 @@
               </div>
               <br>
               <br>
-                <button class="massive ui button game-button" @click="sendAnswer()">
+                <button style="touch-action: manipulation;" class="massive ui button game-button" @click="sendAnswer()">
                   Buzz
                 </button>
             </div>
