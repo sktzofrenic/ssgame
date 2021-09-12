@@ -115,10 +115,7 @@ export default {
         },
         flip: function (index) {
             this.cards[index].flipped = !this.cards[index].flipped
-            if (this.doublers > 0) {
-                this.doublers -= 1
-                this.pickNumber = this.pickNumber / 2
-            }
+            
             if (this.cards[index].value === 0) {
                 // ZONK!!!
                 if (this.unzonks > 0) {
@@ -143,6 +140,10 @@ export default {
             } else {
                 // Card was worth points
                 this.activeTeamPoints += this.cards[index].value * this.pickNumber
+                if (this.doublers > 0) {
+                    this.doublers -= 1
+                    this.pickNumber = this.pickNumber / 2
+                }
                 var audio = new Audio('/static/audio/positive.wav')
                 audio.play()
                 this.pickNumber += 1
