@@ -46,10 +46,10 @@
                                 <h1 v-if="card.value == 0">
                                     <img src="/static/img/zonk.png" alt="">
                                 </h1>
-                                <h1 v-if="card.value == -4">
+                                <h1 v-if="card.value == -1">
                                     <img src="/static/img/unzonk.png" alt="">
                                 </h1>
-                                <h1 v-if="card.value == -8">
+                                <h1 v-if="card.value == -2">
                                     <img src="/static/img/doubler.png" alt="">
                                 </h1>
                             </div>
@@ -95,12 +95,12 @@ export default {
             this.changeTeam(this.currentTeam)
             this.cards = []
             for (var i = 0; i < _.range(28).length; i++) {
-                var multiplier = 4
-                var cardPossibilities = [0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
+                var multiplier = 1
+                var cardPossibilities = [0, 0, 100, 100, 200, 300, 400, 500, 500, 0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
                 if (notRisky) {
                     multiplier = 1
                     this.risky = false
-                    cardPossibilities = [0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
+                    cardPossibilities = [0, 0, 100, 100, 200, 300, 400, 500, 500, 0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
                     console.log('not risky')
                 }
                 this.cards.push({
@@ -127,14 +127,15 @@ export default {
                     this.pickNumber = 0
                     this.activeTeamPoints = 0
                 }
-            } else if (this.cards[index].value === -4) {
+            } else if (this.cards[index].value === -1) {
                 var audio = new Audio('/static/audio/unzonk.wav')
                 audio.play()
                 this.unzonks += 1
-            } else if (this.cards[index].value === -8) {
+            } else if (this.cards[index].value === -2) {
                 var audio = new Audio('/static/audio/double.wav')
                 audio.play()
                 this.doublers += 1
+                this.pickNumber = this.pickNumber * 2
             } else {
                 // Card was worth points
                 this.activeTeamPoints += this.cards[index].value * this.pickNumber
