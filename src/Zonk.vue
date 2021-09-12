@@ -127,11 +127,11 @@ export default {
                     this.pickNumber = 0
                     this.activeTeamPoints = 0
                 }
-            } else if (this.cards[index].value === -1) {
+            } else if (this.cards[index].value === -4) {
                 var audio = new Audio('/static/audio/unzonk.wav')
                 audio.play()
                 this.unzonks += 1
-            } else if (this.cards[index].value === -2) {
+            } else if (this.cards[index].value === -8) {
                 var audio = new Audio('/static/audio/double.wav')
                 audio.play()
                 this.doublers += 1
