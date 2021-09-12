@@ -96,11 +96,11 @@ export default {
             this.cards = []
             for (var i = 0; i < _.range(28).length; i++) {
                 var multiplier = 1
-                var cardPossibilities = [0, 0, 100, 100, 200, 300, 400, 500, 500, 0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
+                var cardPossibilities = [0, 100, 100, 200, 300, 400, 500, 500, 0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
                 if (notRisky) {
                     multiplier = 1
                     this.risky = false
-                    cardPossibilities = [0, 0, 100, 100, 200, 300, 400, 500, 500, 0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
+                    cardPossibilities = [0, 100, 100, 200, 300, 400, 500, 500, 0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
                     console.log('not risky')
                 }
                 this.cards.push({
