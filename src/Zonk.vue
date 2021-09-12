@@ -13,7 +13,11 @@
                 <span v-else>  {{ teamTwoName }} is playing || <span style="cursor: pointer" @click="endTurn">End Turn</span></span>
             </div> -->
             <div v-if="activeTeamPoints" class="ui olive huge label">
-                <span> {{ teamName }} Accumulated: {{ activeTeamPoints }}</span>
+                <span> 
+                    {{ teamName }} Accumulated: {{ activeTeamPoints }} 
+                    <span v-if="doublers">Doublers: {{doublers}}</span>
+                    <span v-if="unzonks">Unzonks: {{unzonks}}</span>
+                </span>
                 &nbsp;&nbsp;&nbsp;Next card worth  = X {{ pickNumber }}
             </div>
             <!-- <div v-if="risky" class="ui brown huge label">
@@ -39,8 +43,14 @@
                                     </span>
 
                                 </h1>
-                                <h1 v-else>
+                                <h1 v-if="card.value == 0">
                                     <img src="/static/img/zonk.png" alt="">
+                                </h1>
+                                <h1 v-if="card.value == -1">
+                                    <img src="/static/img/unzonk.png" alt="">
+                                </h1>
+                                <h1 v-if="card.value == -2">
+                                    <img src="/static/img/doubler.png" alt="">
                                 </h1>
                             </div>
                         </div>
@@ -67,10 +77,18 @@ export default {
             risky: true,
             pickNumber: 1,
             activeTeamPoints: 0,
-            cardPossibilities: [0, 100, 100, 200, 300, 400, 500, 500]
+            doublers: 0,
+            unzonks: 0,
+            cardPossibilities: [0, 0, 100, 100, 200, 300, 400, 500, 500]
         }
     },
-    props: ['teamName'],
+    watch: {
+        team () {
+            this.doublers = this.team.doublers || 0
+            this.unzonks = this.team.unzonks || 0
+        }
+    },
+    props: ['teamName', 'team'],
     methods: {
         generateCards: function (notRisky) {
             var vm = this
@@ -78,11 +96,11 @@ export default {
             this.cards = []
             for (var i = 0; i < _.range(28).length; i++) {
                 var multiplier = 4
-                var cardPossibilities = [0, 0, 0, 0, 100, 100, 200, 300, 400, 500, 500]
+                var cardPossibilities = [0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
                 if (notRisky) {
                     multiplier = 1
                     this.risky = false
-                    cardPossibilities = [0, 0, 0, 0, 100, 100, 200, 300, 400, 500, 500]
+                    cardPossibilities = [0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
                     console.log('not risky')
                 }
                 this.cards.push({
@@ -99,10 +117,24 @@ export default {
             this.cards[index].flipped = !this.cards[index].flipped
             if (this.cards[index].value === 0) {
                 // ZONK!!!
-                var audio = new Audio('/static/audio/evillaugh.mp3')
+                if (this.unzonks > 0) {
+                    var audio = new Audio('/static/audio/unzonk.wav')
+                    audio.play()
+                    this.unzonks -= 1
+                } else {
+                    var audio = new Audio('/static/audio/evillaugh.mp3')
+                    audio.play()
+                    this.pickNumber = 0
+                    this.activeTeamPoints = 0
+                }
+            } else if (this.cards[index].value === -1) {
+                var audio = new Audio('/static/audio/unzonk.wav')
                 audio.play()
-                this.pickNumber = 0
-                this.activeTeamPoints = 0
+                this.unzonks += 1
+            } else if (this.cards[index].value === -2) {
+                var audio = new Audio('/static/audio/double.wav')
+                audio.play()
+                this.doublers += 1
             } else {
                 // Card was worth points
                 this.activeTeamPoints += this.cards[index].value * this.pickNumber
@@ -145,14 +177,18 @@ export default {
             this.currentTeam = ''
             this.risky = true
             this.pickNumber = 1
+            this.doublers = 0
+            this.unzonks = 0
         },
         endTurn: function () {
             this[this.currentTeam] += this.activeTeamPoints
-            this.$emit('playDone', this.activeTeamPoints)
+            this.$emit('playDone', this.activeTeamPoints, this.doublers, this.unzonks)
             this.activeTeamPoints = 0
             this.currentTeam = ''
             this.risky = true
             this.pickNumber = 1
+            this.doublers = 0
+            this.unzonks = 0
             this.generateCards()
 
         },

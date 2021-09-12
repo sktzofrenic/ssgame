@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="zonk-game" v-show="zonkOn">
-            <Zonk :teamName="name" @playDone="stopPlay"/>
+            <Zonk :teamName="name" :team="team" @playDone="stopPlay"/>
             <!-- <Trivia :teamName="name" @playDone="stopPlay"/> -->
         </div>
     </div>
@@ -38,6 +38,7 @@ export default {
     data () {
         return {
             name: '',
+            team: null,
             socket: undefined,
             players: [],
             zonkOn: false,
@@ -72,10 +73,10 @@ export default {
         selectTeam (index) {
             this.name = this.players[index].name
         },
-        stopPlay (points) {
+        stopPlay (points, doublers, unzonks) {
             console.log(points)
             this.zonkOn = !this.zonkOn
-            this.correctAnswer(points)
+            this.correctAnswer(points, doublers, unzonks)
         },
         truncate (name) {
             if (name.length > 8) {
@@ -94,23 +95,29 @@ export default {
                 // add the player if not exists
                 vm.players.push({
                     name: vm.name,
-                    points: 0
+                    points: 0,
+                    doublers: 0,
+                    unzonks: 0
                 })
             }
             this.name = ''
         },
-        correctAnswer: function (points) {
+        correctAnswer: function (points, doublers, unzonks) {
             var vm = this
             if (_.find(vm.players, {name: vm.name})) {
                 vm.players.map(function (each) {
                     if (each.name === vm.name) {
                         each.points += points
+                        each.doublers += doublers
+                        each.unzonks += unzonks
                     }
                 })
             } else {
                 vm.players.push({
                     name: vm.name,
-                    points: points
+                    points: points,
+                    doublers: doublers,
+                    unzonks: unzonks
                 })
             }
             vm.name = ''
@@ -179,6 +186,7 @@ export default {
                         var alert = new Audio('/static/alert.wav')
                         alert.play()
                         vm.name = vm.possiblePlayers[0].name
+                        vm.team = vm.possiblePlayers[0]
                         vm.possiblePlayers = []
                     }
                 }, 500)
