@@ -46,11 +46,10 @@
                                 <h1 v-if="card.value == 0">
                                     <img src="/static/img/zonk.png" alt="">
                                 </h1>
-                                {{ card.value }}
-                                <h1 v-if="card.value == -1">
+                                <h1 v-if="card.value == -4">
                                     <img src="/static/img/unzonk.png" alt="">
                                 </h1>
-                                <h1 v-if="card.value == -2">
+                                <h1 v-if="card.value == -8">
                                     <img src="/static/img/doubler.png" alt="">
                                 </h1>
                             </div>
