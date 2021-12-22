@@ -94,24 +94,18 @@ export default {
             var vm = this
             this.changeTeam(this.currentTeam)
             this.cards = []
-            for (var i = 0; i < _.range(28).length; i++) {
-                var multiplier = 1
-                var cardPossibilities = [0, 100, 100, 200, 300, 400, 500, 500, 0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
-                if (notRisky) {
-                    multiplier = 1
-                    this.risky = false
-                    cardPossibilities = [0, 100, 100, 200, 300, 400, 500, 500, 0, 0, 100, 100, 200, 300, 400, 500, 500, -1, -2]
-                    console.log('not risky')
-                }
-                this.cards.push({
-                    id: i,
+            
+            var cardPossibilities = [-1, -2, 100, 100, 200, 200, 200, 200, 300, 300, 300, 300, 400, 400, 400, 400, 500, 500, 500, 500, 0, 0, 0, 0, 0, 0, 0, 0]
+
+            cardPossibilities = cardPossibilities.map(function (each, index) {
+                return {
+                    id: index,
                     flipped: false,
-                    value: cardPossibilities[Math.floor(Math.random() * cardPossibilities.length)] * multiplier
-                })
-            }
-            if (!_.find(vm.cards, function(o) { return o.value === 0 })) {
-                vm.generateCards()
-            }
+                    value: each
+                }
+            })
+            cardPossibilities = _.shuffle(cardPossibilities)
+            this.cards = cardPossibilities
         },
         flip: function (index) {
             this.cards[index].flipped = !this.cards[index].flipped
