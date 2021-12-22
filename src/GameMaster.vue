@@ -147,7 +147,7 @@ export default {
         var vm = this
         Mousetrap.bind('d d', function () {
             vm.players.splice(vm.players.indexOf(vm.name), 1)
-            this.name = ''
+            vm.name = ''
         })
         Mousetrap.bind('p', function () {
             vm.playGame()
