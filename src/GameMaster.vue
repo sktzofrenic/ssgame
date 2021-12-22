@@ -14,7 +14,7 @@
                     <div class="value" :style="pointStyle" style="color: #f9ff03 !important;">
                         {{ formatNumber(player.points) }}
                     </div>
-                    <div class="label" :style="nameStyle" style="color: #fff !important; margin-top: 10px; text-transform: capitalize;">
+                    <div class="label" :style="nameStyle" style="color: #fff !important; margin-top: 10px; ">
                         {{ truncate(player.name) }}
                     </div>
                 </div>
