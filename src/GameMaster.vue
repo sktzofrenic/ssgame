@@ -14,7 +14,7 @@
                     <div class="value" :style="pointStyle" style="color: #f9ff03 !important;">
                         {{ formatNumber(player.points) }}
                     </div>
-                    <div class="label" :style="nameStyle" style="color: #fff !important; margin-top: 10px;">
+                    <div class="label" :style="nameStyle" style="color: #fff !important; margin-top: 10px; text-transform: capitalize;">
                         {{ truncate(player.name) }}
                     </div>
                 </div>
@@ -87,14 +87,14 @@ export default {
         },
         clearAnswer: function () {
             var vm = this
-            if (_.find(vm.players, {name: vm.name})) {
+            if (_.find(vm.players, {name: vm.name.toLowerCase()})) {
                 vm.players.map(function (each) {
                     // do nothing if the player exists
                 })
             } else {
                 // add the player if not exists
                 vm.players.push({
-                    name: vm.name,
+                    name: vm.name.toLowerCase(),
                     points: 0,
                     doublers: 0,
                     unzonks: 0
@@ -145,6 +145,10 @@ export default {
     },
     mounted: function () {
         var vm = this
+        Mousetrap.bind('d d', function () {
+            vm.players.splice(vm.players.indexOf(vm.name), 1)
+            this.name = ''
+        })
         Mousetrap.bind('p', function () {
             vm.playGame()
         })
