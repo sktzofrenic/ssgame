@@ -56,6 +56,12 @@
                 </div>
             </div>
         </div>
+        <div v-if="questionIndex >= 0 && questions[questionIndex].responses.length == 0">
+            <h1 class="letter">A: {{questions[questionIndex].choices[0]}}</h1>
+            <h1 class="letter">B: {{questions[questionIndex].choices[1]}}</h1>
+            <h1 class="letter">C: {{questions[questionIndex].choices[2]}}</h1>
+            <h1 class="letter">D: {{questions[questionIndex].choices[3]}}</h1>
+        </div>
     </div>
 </template>
 
