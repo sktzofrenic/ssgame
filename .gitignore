@@ -7,7 +7,7 @@ Pipfile
 *.remote-synce.json
 
 .vscode
-
+venv/
 # Packages
 *.egg
 *.egg-info

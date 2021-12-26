@@ -56,8 +56,27 @@ def get_bible():
 
 @blueprint.route('/api', methods=['GET', 'POST'])
 def verse_api():
+
+    if request.args.get('getCurrentQuestion'):
+        pusher_client.trigger('ssgame-1', 'updateClients', {})
+        print('updating clients')
+        return jsonify({
+            'status': 'success'
+        })
+    if request.args.get('newQuestion', None):
+        pusher_client.trigger('ssgame-1', 'newQuestion', {
+            'question': request.args.get('question')}
+        )
+        return jsonify({
+            'status': 'success'
+        })
     if request.args.get('answer', None):
-        pusher_client.trigger('ssgame-1', 'answer', {'name': request.args.get('name'), 'timestamp': request.args.get('timestamp', None)})
+        pusher_client.trigger('ssgame-1', 'answer', {
+            'name': request.args.get('name'), 
+            'timestamp': request.args.get('timestamp', None), 
+            'question': request.args.get('question'), 
+            'letterResponse': request.args.get('letterResponse')}
+        )
         return jsonify({
             'status': 'success'
         })
