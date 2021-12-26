@@ -11,7 +11,7 @@
         </div>
         <div class="container horizontal rounded" v-if="questionIndex >= 0 && questions[questionIndex].responses.length > 0">
             <div class="progress-bar horizontal">
-                <h1 class="letter">A: Santa</h1>
+                <h1 class="letter">A: {{questions[questionIndex].choices[0]}}</h1>
                 <div class="progress-track">
                 <div class="progress-fill" :style="{'width': parseInt(results.a / questions[questionIndex].responses.length * 100) + '%'}">
                     <span :style="{'width': parseInt(results.a / questions[questionIndex].responses.length * 100) + '%'}">{{parseInt(results.a / questions[questionIndex].responses.length * 100)}}%</span>
@@ -23,7 +23,7 @@
             </div>
 
             <div class="progress-bar horizontal">
-                <h1 class="letter">B: Jesus</h1>
+                <h1 class="letter">B: {{questions[questionIndex].choices[1]}}</h1>
                 <div class="progress-track">
                 <div class="progress-fill" :style="{'width': parseInt(results.b / questions[questionIndex].responses.length * 100) + '%'}">
                     <span :style="{'width': parseInt(results.b / questions[questionIndex].responses.length * 100) + '%'}">{{parseInt(results.b / questions[questionIndex].responses.length * 100)}}%</span>
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="progress-bar horizontal">
-                <h1 class="letter">C: Both</h1>
+                <h1 class="letter">C: {{questions[questionIndex].choices[2]}}</h1>
                 <div class="progress-track">
                 <div class="progress-fill" :style="{'width': parseInt(results.c / questions[questionIndex].responses.length * 100) + '%'}">
                     <span :style="{'width': parseInt(results.c / questions[questionIndex].responses.length * 100) + '%'}">{{parseInt(results.c / questions[questionIndex].responses.length * 100)}}%</span>
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="progress-bar horizontal">
-                <h1 class="letter">D: Neither</h1>
+                <h1 class="letter">D: {{questions[questionIndex].choices[3]}}</h1>
                 <div class="progress-track">
                 <div class="progress-fill" :style="{'width': parseInt(results.d / questions[questionIndex].responses.length * 100) + '%'}">
                     <span :style="{'width': parseInt(results.d / questions[questionIndex].responses.length * 100) + '%'}">{{parseInt(results.d / questions[questionIndex].responses.length * 100)}}%</span>
@@ -71,87 +71,141 @@ export default {
             questionIndex: -1,
             questions: [
                 {
+                    text: 'What is 1 plus 1?',
+                    choices: ['99', '3', '17', '2'],
+                    answer: '2',
+                    responses: []
+                },
+                {
+                    text: 'How many million miles away is the earth from the sun (on average)?',
+                    choices: ['81', '50', '93', '27'],
+                    answer: '93',
+                    responses: []
+                },
+                {
                     text: 'Maintains a detailed list of deeds of every boy and girl and categorizes them as either good or bad',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Claims eternal existence for himself',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Is/was married to a woman',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Santa',
                     responses: []
                 },
                 {
                     text: 'Claims a place of specific place of residence on the north Pole',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Can see you when you’re sleeping',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Was resurrected from the dead',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Gladly receives requests from children for things that they want or need',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Parents line up with their children to have a chance for them to sit in his lap',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Can cause animals to behave outside of their normal limitations',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Can be in more than one place at at time',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Is worshipped by humans on earth',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Books and songs have been written to extol his deeds',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Parades have been given in his honor',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Can enter into a home without being seen or detected ',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Can fly',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Has ambassadors all over the world that represent him',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'People will decorate their houses, cars, yards in his honor',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'While it is known where he lives, nobody can actually locate his dwelling, we instead must wait for his return',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Has white hair and beard',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Wears red colored clothes',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Both',
                     responses: []
                 },
                 {
                     text: 'Is the only way of salvation from sin, death, and hell',
+                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    answer: 'Jesus',
                     responses: []
                 }
             ]
@@ -241,7 +295,7 @@ export default {
     watch: {
         questionIndex () {
             var vm = this
-            $.get(`/api?newQuestion=true&question=${vm.questions[vm.questionIndex].text}`, function (data) {
+            $.get(`/api?newQuestion=true&question=${vm.questions[vm.questionIndex].text}&choices=${vm.questions[vm.questionIndex].choices.join(',')}`, function (data) {
                 console.log(data)
             })
         }
@@ -276,7 +330,7 @@ export default {
         socket.bind('updateClients', function (data) {
             if (vm.questionIndex > -1) {
                 console.log('updating clients')
-                $.get(`/api?newQuestion=true&question=${vm.questions[vm.questionIndex].text}`, function (data) {
+                $.get(`/api?newQuestion=true&question=${vm.questions[vm.questionIndex].text}&choices=${vm.questions[vm.questionIndex].choices.join(',')}`, function (data) {
                     console.log(data)
                 })
             }

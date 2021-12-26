@@ -65,8 +65,9 @@ def verse_api():
         })
     if request.args.get('newQuestion', None):
         pusher_client.trigger('ssgame-1', 'newQuestion', {
-            'question': request.args.get('question')}
-        )
+            'question': request.args.get('question'),
+            'choices': request.args.get('choices')
+        })
         return jsonify({
             'status': 'success'
         })

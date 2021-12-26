@@ -13,10 +13,10 @@
                   <i class="user icon"></i>
               </div>
               <br>
-              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'a'}" @click="addLetterResponse('a')">A: Santa</button>
-              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'b'}" @click="addLetterResponse('b')">B: Jesus</button>
-              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'c'}" @click="addLetterResponse('c')">C: Both</button>
-              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'd'}" @click="addLetterResponse('d')">D: Neither</button>
+              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'a'}" @click="addLetterResponse('a')">A: {{choices[0]}}</button>
+              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'b'}" @click="addLetterResponse('b')">B: {{choices[1]}}</button>
+              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'c'}" @click="addLetterResponse('c')">C: {{choices[2]}}</button>
+              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'd'}" @click="addLetterResponse('d')">D: {{choices[3]}}</button>
               <!-- <br>
                 <button style="touch-action: manipulation;" class="massive ui button game-button" @click="sendAnswer()">
                   Buzz
@@ -35,6 +35,7 @@ export default {
     data () {
         return {
             question: '',
+            choices: ['', '', '', ''],
             letterResponse: '',
             name: '',
             socket: undefined,
@@ -50,6 +51,9 @@ export default {
     methods: {
         addLetterResponse (letterResponse) {
             var vm = this
+            if (vm.letterResponse) {
+                return
+            }
             vm.letterResponse = letterResponse
             if (vm.question && vm.name) {
                 vm.sendAnswer()
@@ -85,6 +89,7 @@ export default {
                 return
             }
             vm.question = data.question
+            vm.choices = data.choices.split(',')
             vm.letterResponse = ''
         })
 
