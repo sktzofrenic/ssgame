@@ -216,6 +216,9 @@ export default {
                 }).length,
                 d: vm.questions[vm.questionIndex].responses.filter(function (each) {
                     return each.letterResponse == 'd'
+                }).length,
+                e: vm.questions[vm.questionIndex].responses.filter(function (each) {
+                    return each.letterResponse == 'e'
                 }).length
             }
         }
