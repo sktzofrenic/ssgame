@@ -13,10 +13,11 @@
                   <i class="user icon"></i>
               </div>
               <br>
-              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'a'}" @click="addLetterResponse('a')">A: {{choices[0]}}</button>
-              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'b'}" @click="addLetterResponse('b')">B: {{choices[1]}}</button>
-              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'c'}" @click="addLetterResponse('c')">C: {{choices[2]}}</button>
-              <button class="ui fluid button mc-button" :class="{'red': letterResponse == 'd'}" @click="addLetterResponse('d')">D: {{choices[3]}}</button>
+              <button class="ui fluid button mc-button" v-if="choices.length >= 1" :class="{'red': letterResponse == 'a'}" @click="addLetterResponse('a')">A: {{choices[0]}}</button>
+              <button class="ui fluid button mc-button" v-if="choices.length >= 2" :class="{'red': letterResponse == 'b'}" @click="addLetterResponse('b')">B: {{choices[1]}}</button>
+              <button class="ui fluid button mc-button" v-if="choices.length >= 3" :class="{'red': letterResponse == 'c'}" @click="addLetterResponse('c')">C: {{choices[2]}}</button>
+              <button class="ui fluid button mc-button" v-if="choices.length >= 4" :class="{'red': letterResponse == 'd'}" @click="addLetterResponse('d')">D: {{choices[3]}}</button>
+              <button class="ui fluid button mc-button" v-if="choices.length >= 5" :class="{'red': letterResponse == 'e'}" @click="addLetterResponse('e')">E: {{choices[4]}}</button>
               <!-- <br>
                 <button style="touch-action: manipulation;" class="massive ui button game-button" @click="sendAnswer()">
                   Buzz
@@ -35,7 +36,7 @@ export default {
     data () {
         return {
             question: '',
-            choices: ['', '', '', ''],
+            choices: ['', '', '', '', ''],
             letterResponse: '',
             name: '',
             socket: undefined,

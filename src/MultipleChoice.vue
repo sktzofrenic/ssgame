@@ -10,7 +10,7 @@
             <h2>Waiting To Start</h2>
         </div>
         <div class="container horizontal rounded" v-if="questionIndex >= 0 && questions[questionIndex].responses.length > 0">
-            <div class="progress-bar horizontal">
+            <div class="progress-bar horizontal" v-if="questions[questionIndex].choices.length >= 1">
                 <h1 class="letter">A: {{questions[questionIndex].choices[0]}}</h1>
                 <div class="progress-track">
                 <div class="progress-fill" :style="{'width': parseInt(results.a / questions[questionIndex].responses.length * 100) + '%'}">
@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <div class="progress-bar horizontal">
+            <div class="progress-bar horizontal" v-if="questions[questionIndex].choices.length >= 2">
                 <h1 class="letter">B: {{questions[questionIndex].choices[1]}}</h1>
                 <div class="progress-track">
                 <div class="progress-fill" :style="{'width': parseInt(results.b / questions[questionIndex].responses.length * 100) + '%'}">
@@ -33,7 +33,7 @@
                 </div>
                 </div>
             </div>
-            <div class="progress-bar horizontal">
+            <div class="progress-bar horizontal" v-if="questions[questionIndex].choices.length >= 3">
                 <h1 class="letter">C: {{questions[questionIndex].choices[2]}}</h1>
                 <div class="progress-track">
                 <div class="progress-fill" :style="{'width': parseInt(results.c / questions[questionIndex].responses.length * 100) + '%'}">
@@ -44,7 +44,7 @@
                 </div>
                 </div>
             </div>
-            <div class="progress-bar horizontal">
+            <div class="progress-bar horizontal" v-if="questions[questionIndex].choices.length >= 4">
                 <h1 class="letter">D: {{questions[questionIndex].choices[3]}}</h1>
                 <div class="progress-track">
                 <div class="progress-fill" :style="{'width': parseInt(results.d / questions[questionIndex].responses.length * 100) + '%'}">
@@ -55,12 +55,24 @@
                 </div>
                 </div>
             </div>
+            <div class="progress-bar horizontal" v-if="questions[questionIndex].choices.length >= 5">
+                <h1 class="letter">E: {{questions[questionIndex].choices[4]}}</h1>
+                <div class="progress-track">
+                <div class="progress-fill" :style="{'width': parseInt(results.e / questions[questionIndex].responses.length * 100) + '%'}">
+                    <span :style="{'width': parseInt(results.e / questions[questionIndex].responses.length * 100) + '%'}">{{parseInt(results.e / questions[questionIndex].responses.length * 100)}}%</span>
+                    <span style="position: absolute; font-size: 17px; bottom: -27px; left: 8px;">
+                         {{dNames.join(', ')}}
+                    </span>
+                </div>
+                </div>
+            </div>
         </div>
         <div v-if="questionIndex >= 0 && questions[questionIndex].responses.length == 0">
-            <h1 class="letter">A: {{questions[questionIndex].choices[0]}}</h1>
-            <h1 class="letter">B: {{questions[questionIndex].choices[1]}}</h1>
-            <h1 class="letter">C: {{questions[questionIndex].choices[2]}}</h1>
-            <h1 class="letter">D: {{questions[questionIndex].choices[3]}}</h1>
+            <h1 class="letter" v-if="questions[questionIndex].choices.length >= 1">A: {{questions[questionIndex].choices[0]}}</h1>
+            <h1 class="letter" v-if="questions[questionIndex].choices.length >= 2">B: {{questions[questionIndex].choices[1]}}</h1>
+            <h1 class="letter" v-if="questions[questionIndex].choices.length >= 3">C: {{questions[questionIndex].choices[2]}}</h1>
+            <h1 class="letter" v-if="questions[questionIndex].choices.length >= 4">D: {{questions[questionIndex].choices[3]}}</h1>
+            <h1 class="letter" v-if="questions[questionIndex].choices.length >= 5">E: {{questions[questionIndex].choices[4]}}</h1>
         </div>
     </div>
 </template>
@@ -83,135 +95,45 @@ export default {
                     responses: []
                 },
                 {
-                    text: 'How many million miles away is the earth from the sun (on average)?',
-                    choices: ['81', '50', '93', '27'],
-                    answer: '93',
+                    text: 'Who wrote the book of Ruth?',
+                    choices: ['Paul', 'Samuel', 'Ruth', 'Naomi', 'None of these'],
+                    answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Maintains a detailed list of deeds of every boy and girl and categorizes them as either good or bad',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    text: 'At which feast is Ruth traditionally read by Orthodox Jews?',
+                    choices: ['Passover', 'Shavuot', 'Rosh Hashanah', 'Yom Kippur', 'None of these'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'How would you rate the spiritual condition of the Israelites during the time of the judges?',
+                    choices: ['9-10', '7-8', '5-6', '3-4', '1-2'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'Claims eternal existence for himself',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    text: 'What does a levirate marriage mean?',
+                    choices: ['A marriage between two Levites', 'A marriage with leverage', 'Marriage to Leviathan', 'A marriage between a widow and her brother-in-law', 'None of these'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'Is/was married to a woman',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Santa',
-                    responses: []
-                },
-                {
-                    text: 'Claims a place of specific place of residence on the north Pole',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    text: 'How weird is a levirate marriage?',
+                    choices: ['Seems fine to me', 'I\'m appalled!', 'I would try it', 'Makes no sense', 'Live and let live'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'Can see you when you’re sleeping',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    text: 'Who benefits the most from levirate marriage?',
+                    choices: ['The man', 'The woman', 'Both Benefit equally', 'Neither Benefit at all'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'Was resurrected from the dead',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
+                    text: 'Who acted righteously in the story of Tamar and Judah?',
+                    choices: ['Judah', 'Tamar', 'Both', 'Neither'],
                     answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Gladly receives requests from children for things that they want or need',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Parents line up with their children to have a chance for them to sit in his lap',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Can cause animals to behave outside of their normal limitations',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Can be in more than one place at at time',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Is worshipped by humans on earth',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Books and songs have been written to extol his deeds',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Parades have been given in his honor',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Can enter into a home without being seen or detected ',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Can fly',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Has ambassadors all over the world that represent him',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'People will decorate their houses, cars, yards in his honor',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'While it is known where he lives, nobody can actually locate his dwelling, we instead must wait for his return',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Has white hair and beard',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Wears red colored clothes',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Both',
-                    responses: []
-                },
-                {
-                    text: 'Is the only way of salvation from sin, death, and hell',
-                    choices: ['Santa', 'Jesus', 'Both', 'Neither'],
-                    answer: 'Jesus',
                     responses: []
                 }
             ]
