@@ -61,7 +61,7 @@
                 <div class="progress-fill" :style="{'width': parseInt(results.e / questions[questionIndex].responses.length * 100) + '%'}">
                     <span :style="{'width': parseInt(results.e / questions[questionIndex].responses.length * 100) + '%'}">{{parseInt(results.e / questions[questionIndex].responses.length * 100)}}%</span>
                     <span style="position: absolute; font-size: 17px; bottom: -27px; left: 8px;">
-                         {{dNames.join(', ')}}
+                         {{eNames.join(', ')}}
                     </span>
                 </div>
                 </div>
@@ -190,6 +190,17 @@ export default {
             }
             return vm.questions[vm.questionIndex].responses.filter(function (each) {
                     return each.letterResponse == 'd'
+                }).map(function (each) {
+                    return each.name
+                })
+        },
+        eNames () {
+            var vm = this
+            if (vm.questionIndex < 0) {
+                return []
+            }
+            return vm.questions[vm.questionIndex].responses.filter(function (each) {
+                    return each.letterResponse == 'e'
                 }).map(function (each) {
                     return each.name
                 })
