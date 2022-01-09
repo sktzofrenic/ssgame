@@ -1,5 +1,17 @@
 <template>
     <div class="ui">
+        <div 
+        style="
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 43px;
+            background: #000f37;
+            padding: 22px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 8px 0px;
+        ">Responses: {{totalResponses}}</div>
         <div v-if="questionIndex >= 0" style="color: white;
     font-size: 80px;
     line-height: 90px; margin-bottom: 20px">
@@ -9,7 +21,7 @@
         <div v-else>
             <h2>Waiting To Start</h2>
         </div>
-        <div class="container horizontal rounded" v-if="questionIndex >= 0 && questions[questionIndex].responses.length > 0">
+        <div class="container horizontal rounded" v-if="totalResponses >= 3 && questionIndex >= 0 && questions[questionIndex].responses.length > 0">
             <div class="progress-bar horizontal" v-if="questions[questionIndex].choices.length >= 1">
                 <h1 class="letter">A: {{questions[questionIndex].choices[0]}}</h1>
                 <div class="progress-track">
@@ -67,7 +79,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="questionIndex >= 0 && questions[questionIndex].responses.length == 0">
+        <div v-if="questionIndex >= 0 && totalResponses < 3">
             <h1 class="letter" v-if="questions[questionIndex].choices.length >= 1">A: {{questions[questionIndex].choices[0]}}</h1>
             <h1 class="letter" v-if="questions[questionIndex].choices.length >= 2">B: {{questions[questionIndex].choices[1]}}</h1>
             <h1 class="letter" v-if="questions[questionIndex].choices.length >= 3">C: {{questions[questionIndex].choices[2]}}</h1>
@@ -141,6 +153,14 @@ export default {
         }
     },
     computed: {
+        totalResponses () {
+            var vm = this
+            if (vm.questionIndex >= 0) {
+               return vm.questions[vm.questionIndex].responses.length 
+            } else {
+                return 0
+            }
+        },
         allNames () {
             var vm = this
             if (vm.questionIndex < 0) {
@@ -212,7 +232,8 @@ export default {
                     a: 0,
                     b: 0,
                     c: 0,
-                    d: 0
+                    d: 0,
+                    e: 0
                 }
             }
             return {
