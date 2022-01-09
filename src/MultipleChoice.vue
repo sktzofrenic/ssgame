@@ -95,44 +95,44 @@ export default {
                     responses: []
                 },
                 {
-                    text: 'Who wrote the book of Ruth?',
-                    choices: ['Paul', 'Samuel', 'Ruth', 'Naomi', 'None of these'],
+                    text: 'Baal is the god of...',
+                    choices: ['Weather', 'Peace', 'Fertility', 'War', 'None of these'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'At which feast is Ruth traditionally read by Orthodox Jews?',
-                    choices: ['Passover', 'Shavuot', 'Rosh Hashanah', 'Yom Kippur', 'None of these'],
+                    text: 'Is Jealousy Good or Bad?',
+                    choices: ['Good', 'Bad', 'Neither', 'This Lesson is Bad'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'How would you rate the spiritual condition of the Israelites during the time of the judges?',
-                    choices: ['9-10', '7-8', '5-6', '3-4', '1-2'],
+                    text: 'What does sojourn mean?',
+                    choices: ['To go to a distant country', 'To walk; to go or march on foot;', 'Dwell temporarily', 'To move or walk as a beast,'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'What does a levirate marriage mean?',
-                    choices: ['A marriage between two Levites', 'A marriage with leverage', 'Marriage to Leviathan', 'A marriage between a widow and her brother-in-law', 'None of these'],
+                    text: 'Do you think Elimelech knew all of this information about the Moabites when he traveled there?',
+                    choices: ['I\'m sure he did', 'Definitely Not', 'He knew some of it at least', 'He didn\'t graduate from high school give him a break'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'How weird is a levirate marriage?',
-                    choices: ['Seems fine to me', 'I\'m appalled!', 'I would try it', 'Makes no sense', 'Live and let live'],
+                    text: 'Was God punishing Elimelech when he and his sons died?',
+                    choices: ['Maybe', 'Yes, it\'s obvious', 'No, sometimes bad things happen. That\'s life.', 'Only God really knows'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'Who benefits the most from levirate marriage?',
-                    choices: ['The man', 'The woman', 'Both Benefit equally', 'Neither Benefit at all'],
+                    text: 'Did Elimelech make a GOOD, NEUTRAL, or BAD decision when he decided to sojourn in Moab?',
+                    choices: ['GOOD', 'BAD', 'NEUTRAL'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'Who acted righteously in the story of Tamar and Judah?',
-                    choices: ['Judah', 'Tamar', 'Both', 'Neither'],
+                    text: 'What do you think of these poll questions during sunday school?',
+                    choices: ['Love it', 'Hate it'],
                     answer: 'Both',
                     responses: []
                 }
