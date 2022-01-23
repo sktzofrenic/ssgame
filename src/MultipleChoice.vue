@@ -107,44 +107,44 @@ export default {
                     responses: []
                 },
                 {
-                    text: 'Baal is the god of...',
-                    choices: ['Weather', 'Peace', 'Fertility', 'War', 'None of these'],
+                    text: 'What was the reason that Elimelech moved his family to Moab?',
+                    choices: ['No Chik-Fil-A in Judah', 'Property Taxes', 'Vaccine Mandate', 'Famine', 'None of these'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Is Jealousy Good or Bad?',
-                    choices: ['Good', 'Bad', 'Neither', 'This Lesson is Bad'],
+                    text: 'Why is the husband the head of the home?',
+                    choices: ['Men are smarter', 'God said so', 'Two heads make a monster', 'The husband is held accountable'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'What does sojourn mean?',
-                    choices: ['To go to a distant country', 'To walk; to go or march on foot;', 'Dwell temporarily', 'To move or walk as a beast,'],
+                    text: 'Did God warn the Caananites before he commanded Israel to conquer them?',
+                    choices: ['Yes', 'No', 'The Bible Doesn\'t Say'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'Do you think Elimelech knew all of this information about the Moabites when he traveled there?',
-                    choices: ['I\'m sure he did', 'Definitely Not', 'He knew some of it at least', 'He didn\'t graduate from high school give him a break'],
+                    text: 'Did ruth get saved?',
+                    choices: ['Absolutely', 'Honestly, it\'s not clear', 'Only God really knows', 'I\'m still thinking about it'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'Was God punishing Elimelech when he and his sons died?',
-                    choices: ['Maybe', 'Yes, it\'s obvious', 'No, sometimes bad things happen. That\'s life.', 'Only God really knows'],
+                    text: 'Which type of leadership did Naomi have?',
+                    choices: ['Positional', 'Personality', 'Competence', 'A & B', 'A & C'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'Did Elimelech make a GOOD, NEUTRAL, or BAD decision when he decided to sojourn in Moab?',
-                    choices: ['GOOD', 'BAD', 'NEUTRAL'],
+                    text: 'When Naomi says, "the hand of the Lord is gone out against me" she is...',
+                    choices: ['Stating the facts', 'Being dramatic', 'Explaining that serving God isn\'t always easy', 'Discouraging Ruth and Orpah'],
                     answer: 'Both',
                     responses: []
                 },
                 {
-                    text: 'What do you think of these poll questions during sunday school?',
-                    choices: ['Love it', 'Hate it'],
+                    text: 'What did it cost Ruth to leave moab?',
+                    choices: ['Friendships', 'Citizenship', 'Family', 'Ostracization', 'All of these'],
                     answer: 'Both',
                     responses: []
                 }
