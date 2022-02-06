@@ -101,53 +101,173 @@ export default {
             questionIndex: -1,
             questions: [
                 {
-                    text: 'What is 1 plus 1?',
-                    choices: ['99', '3', '17', '2'],
+                    text: 'Did you do your homework from last week?',
+                    choices: ['lol', 'Didn\'t know there was any', 'Yes, because I care', 'Was never gonna\' happen'],
                     answer: '2',
                     responses: []
                 },
                 {
-                    text: 'What was the reason that Elimelech moved his family to Moab?',
-                    choices: ['No Chik-Fil-A in Judah', 'Property Taxes', 'Vaccine Mandate', 'Famine', 'None of these'],
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Why is the husband the head of the home?',
-                    choices: ['Men are smarter', 'God said so', 'Two heads make a monster', 'The husband is held accountable'],
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did God warn the Caananites before he commanded Israel to conquer them?',
-                    choices: ['Yes', 'No', 'The Bible Doesn\'t Say'],
-                    answer: 'Both',
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did ruth get saved?',
-                    choices: ['Absolutely', 'Honestly, it\'s not clear', 'Only God really knows', 'I\'m still thinking about it'],
-                    answer: 'Both',
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Which type of leadership did Naomi have?',
-                    choices: ['Positional', 'Personality', 'Competence', 'A & B', 'A & C'],
-                    answer: 'Both',
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'When Naomi says, "the hand of the Lord is gone out against me" she is...',
-                    choices: ['Stating the facts', 'Being dramatic', 'Explaining that serving God isn\'t always easy', 'Discouraging Ruth and Orpah'],
-                    answer: 'Both',
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'What did it cost Ruth to leave moab?',
-                    choices: ['Friendships', 'Citizenship', 'Family', 'Ostracization', 'All of these'],
-                    answer: 'Both',
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
                     responses: []
-                }
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
+                {
+                    text: 'Did Ruth and Boaz...',
+                    choices: ['Yes', 'Unsure', 'No'],
+                    answer: 'Samuel',
+                    responses: []
+                },
             ]
 
         }
