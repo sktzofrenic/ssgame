@@ -102,7 +102,7 @@ export default {
             questions: [
                 {
                     text: 'Did you do your homework from last week?',
-                    choices: ['lol', 'Didn\'t know there was any', 'Yes, because I care', 'Was never gonna\' happen'],
+                    choices: ['lol', 'Didn\'t know there was any', 'Yes because I care', 'Was never gonna\' happen'],
                     answer: '2',
                     responses: []
                 },
