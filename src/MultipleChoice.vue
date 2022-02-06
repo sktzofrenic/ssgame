@@ -15,7 +15,6 @@
         <div v-if="questionIndex >= 0" style="color: white;
     font-size: 80px;
     line-height: 90px; margin-bottom: 20px">
-            <span>#{{questionIndex + 1}}</span>
             {{questions[questionIndex].text}}
         </div>
         <div v-else>
@@ -101,7 +100,7 @@ export default {
             questionIndex: -1,
             questions: [
                 {
-                    text: '#1 Did you do your homework from last week?',
+                    text: 'Did you do your homework from last week?',
                     choices: ['lol', 'Didn\'t know there was any', 'Yes because I care', 'Was never gonna\' happen'],
                     answer: '2',
                     responses: []
