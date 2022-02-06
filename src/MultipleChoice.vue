@@ -15,6 +15,7 @@
         <div v-if="questionIndex >= 0" style="color: white;
     font-size: 80px;
     line-height: 90px; margin-bottom: 20px">
+            <span>#</span>
             {{questions[questionIndex].text}}
         </div>
         <div v-else>
@@ -100,169 +101,169 @@ export default {
             questionIndex: -1,
             questions: [
                 {
-                    text: 'Did you do your homework from last week?',
-                    choices: ['lol', 'Didn\'t know there was any', 'Yes because I care', 'Was never gonna\' happen'],
+                    text: '0 Did you do your homework from last week?',
+                    choices: ['lol', 'Didnt know there was any', 'Yes because I care', 'Was never gonna happen'],
                     answer: '2',
                     responses: []
                 },
                 {
-                    text: '#1 Did Ruth and Boaz...',
+                    text: '1 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#2 Did Ruth and Boaz...',
+                    text: '2 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#3 Did Ruth and Boaz...',
+                    text: '3 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#4 Did Ruth and Boaz...',
+                    text: '4 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#5 Did Ruth and Boaz...',
+                    text: '5 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#6 Did Ruth and Boaz...',
+                    text: '6 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#7 Did Ruth and Boaz...',
+                    text: '7 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#8 Did Ruth and Boaz...',
+                    text: '8 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#9 Did Ruth and Boaz...',
+                    text: '9 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#10 Did Ruth and Boaz...',
+                    text: '10 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#11 Did Ruth and Boaz...',
+                    text: '11 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#12 Did Ruth and Boaz...',
+                    text: '12 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#13 Did Ruth and Boaz...',
+                    text: '13 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#14 Did Ruth and Boaz...',
+                    text: '14 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#15 Did Ruth and Boaz...',
+                    text: '15 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#16 Did Ruth and Boaz...',
+                    text: '16 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#17 Did Ruth and Boaz...',
+                    text: '17 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#18 Did Ruth and Boaz...',
+                    text: '18 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#19 Did Ruth and Boaz...',
+                    text: '19 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#20 Did Ruth and Boaz...',
+                    text: '20 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#21 Did Ruth and Boaz...',
+                    text: '21 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#22 Did Ruth and Boaz...',
+                    text: '22 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#23 Did Ruth and Boaz...',
+                    text: '23 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#24 Did Ruth and Boaz...',
+                    text: '24 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#25 Did Ruth and Boaz...',
+                    text: '25 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#26 Did Ruth and Boaz...',
+                    text: '26 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: '#27 Did Ruth and Boaz...',
+                    text: '27 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
@@ -377,6 +378,7 @@ export default {
     watch: {
         questionIndex () {
             var vm = this
+            console.log(vm.questions[vm.questionIndex], 'question heading out')
             $.get(`/api?newQuestion=true&question=${vm.questions[vm.questionIndex].text}&choices=${vm.questions[vm.questionIndex].choices.join(',')}`, function (data) {
                 console.log(data)
             })
@@ -399,6 +401,7 @@ export default {
                 return o == data.name
             })
             console.log(alreadyAnswered, 'already answered')
+            console.log(vm.questions, vm.questionIndex)
             if (alreadyAnswered > -1) {
                 // nothing
             } else {
@@ -427,6 +430,7 @@ export default {
         Mousetrap.bind('right', function () {
             if (vm.questionIndex >= vm.questions.length - 1) {
                 // nothing
+                console.log('doing nothing')
             } else {
                 vm.questionIndex += 1
             }

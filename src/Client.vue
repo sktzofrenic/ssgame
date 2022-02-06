@@ -85,7 +85,7 @@ export default {
         
 
         socket.bind('newQuestion', function (data) {
-            console.log(data)
+            console.log(data, 'new question')
             if (vm.question == data.question) {
                 return
             }
