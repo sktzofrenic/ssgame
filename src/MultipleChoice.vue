@@ -101,169 +101,169 @@ export default {
             questionIndex: -1,
             questions: [
                 {
-                    text: 'Did you do your homework from last week?',
+                    text: '#1 Did you do your homework from last week?',
                     choices: ['lol', 'Didn\'t know there was any', 'Yes because I care', 'Was never gonna\' happen'],
                     answer: '2',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#1 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#2 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#3 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#4 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#5 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#6 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#7 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#8 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#9 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#10 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#11 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#12 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#13 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#14 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#15 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#16 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#17 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#18 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#19 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#20 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#21 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#22 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#23 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#24 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#25 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#26 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
                 },
                 {
-                    text: 'Did Ruth and Boaz...',
+                    text: '#27 Did Ruth and Boaz...',
                     choices: ['Yes', 'Unsure', 'No'],
                     answer: 'Samuel',
                     responses: []
