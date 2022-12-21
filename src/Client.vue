@@ -1,27 +1,16 @@
 <template lang="html">
     <div class="ui container">
         <div class="ui one column centered grid">
-            <div class="column" style="color: #ffa8a8; font-size: 47px; margin-top: 60px; text-transform: uppercase;     line-height: 75px;">
-                <div v-if="question">
-                    {{question}}
-                </div>
-                <div v-else style="color: white; font-size: 40px; margin-top: 60px; font-style: italic;">
-                    Waiting for question
-                </div>
+            <div class="column">
                 <div class="ui big icon input game-input">
                   <input type="text" placeholder="Your name" v-model="name">
                   <i class="user icon"></i>
               </div>
               <br>
-              <button class="ui fluid button mc-button" v-if="choices.length >= 1" :class="{'red': letterResponse == 'a'}" @click="addLetterResponse('a')">A: {{choices[0]}}</button>
-              <button class="ui fluid button mc-button" v-if="choices.length >= 2" :class="{'red': letterResponse == 'b'}" @click="addLetterResponse('b')">B: {{choices[1]}}</button>
-              <button class="ui fluid button mc-button" v-if="choices.length >= 3" :class="{'red': letterResponse == 'c'}" @click="addLetterResponse('c')">C: {{choices[2]}}</button>
-              <button class="ui fluid button mc-button" v-if="choices.length >= 4" :class="{'red': letterResponse == 'd'}" @click="addLetterResponse('d')">D: {{choices[3]}}</button>
-              <button class="ui fluid button mc-button" v-if="choices.length >= 5" :class="{'red': letterResponse == 'e'}" @click="addLetterResponse('e')">E: {{choices[4]}}</button>
-              <!-- <br>
+              <br>
                 <button style="touch-action: manipulation;" class="massive ui button game-button" @click="sendAnswer()">
                   Buzz
-                </button> -->
+                </button>
             </div>
         </div>
     </div>
@@ -35,39 +24,17 @@ import $ from 'jquery'
 export default {
     data () {
         return {
-            question: '',
-            choices: ['', '', '', '', ''],
-            letterResponse: '',
             name: '',
             socket: undefined,
             delay: 0
         }
     },
-    watch: {
-        question () {
-            var vm = this
-            vm.letterResponse = ''
-        }
-    },
     methods: {
-        addLetterResponse (letterResponse) {
-            var vm = this
-            if (vm.letterResponse) {
-                return
-            }
-            vm.letterResponse = letterResponse
-            if (vm.question && vm.name) {
-                vm.sendAnswer()
-            } else {
-                vm.letterResponse = ''
-            }
-            
-        },
         sendAnswer () {
             var vm = this
             var time = moment().valueOf()
             setTimeout(function () {
-                $.get(`/api?answer=true&name=${vm.name}&timestamp=${time}&question=${vm.question}&letterResponse=${vm.letterResponse}`, function (data) {
+                $.get(`/api?answer=true&name=${vm.name}&timestamp=${time}`, function (data) {
                     console.log(data)
                 })
             }, vm.delay)
@@ -81,24 +48,6 @@ export default {
                 data: 'I\'m connected!'
             })
         })
-
-        
-
-        socket.bind('newQuestion', function (data) {
-            console.log(data, 'new question')
-            if (vm.question == data.question) {
-                return
-            }
-            vm.question = data.question
-            vm.choices = data.choices.split(',')
-            vm.letterResponse = ''
-        })
-
-        setTimeout(() => {
-            $.get(`/api?getCurrentQuestion=true`, function (data) {
-                console.log(data)
-            })
-        }, 1000);
     }
 }
 </script>
@@ -112,19 +61,11 @@ export default {
     font-size: 90px  !important;
         background: rgba(243, 243, 243, 0.8) !important;
 }
-
-.mc-button {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    width: 100%;
-    height: 130px;
-    font-size: 52px  !important;
-}
 .game-input {
     width: 100%;
-    margin-bottom: 20px;
     height: 190px;
     font-size: 80px !important;
     margin-top: 150px;
 }
 </style>
+
