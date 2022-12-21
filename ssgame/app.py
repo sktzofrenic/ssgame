@@ -3,7 +3,7 @@
 from flask import Flask, render_template
 
 from ssgame import commands, public, user
-from ssgame.extensions import bcrypt, cache, login_manager, migrate, webpack
+from ssgame.extensions import bcrypt, cache, db, login_manager, migrate, webpack
 from ssgame.settings import ProdConfig
 import random
 
@@ -50,7 +50,7 @@ def register_extensions(app):
     """Register Flask extensions."""
     bcrypt.init_app(app)
     cache.init_app(app)
-    # db.init_app(app)
+    db.init_app(app)
     login_manager.init_app(app)
     migrate.init_app(app, db)
     webpack.init_app(app)
