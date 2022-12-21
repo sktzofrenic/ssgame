@@ -18,7 +18,7 @@ pusher_client = pusher.Pusher(
 
 bcrypt = Bcrypt()
 login_manager = LoginManager()
-db = SQLAlchemy()
+# db = SQLAlchemy()
 migrate = Migrate()
 cache = Cache()
 webpack = Webpack()
